@@ -16,18 +16,19 @@
 	width: auto !important;
 }
 .gb-entry {
-    width:auto;
-    min-height:150px;
-    margin-top:20px;
-    margin-bottom:10px;
-    padding:5px;
-    border:1px solid #ccc;
-    border-radius:4px;
+    font-family: Exo2, Exo, sans-serif;
+    width: auto;
+    min-height: 150px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     background: #fafafa url(./entry_grey.png) right top no-repeat;
 }
 .gb-entry .entry_date {
-    float:right;
-    font-size:10px;
+    float: right;
+    font-size: 10px;
 }
 .gb-entry .author_entry {
     width: auto;
@@ -40,11 +41,11 @@
 .gb-entry .admin-entry,
 .gb-entry .entry-content {
     display: block;
-    font-size: 14px;
     font-weight: normal;
+    font-size: 14px;
 }
 .gb-entry h3.author-name {
-    width: uto;
+    width: auto;
     margin-bottom: 5px;
     border-bottom: 1px solid #ccc;
     font-size: 18px;
