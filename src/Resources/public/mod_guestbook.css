@@ -1,6 +1,6 @@
-/***************************************************
-*		Modified G. Scherg 2016
-***************************************************/
+/*
+*		Modified G. Scherg 2018
+*/
 
 .mod_guestbooklist {
     padding: 10px;
@@ -21,22 +21,15 @@
     border-radius:4px;
     background: #fafafa url(./entry_grey.png) right top no-repeat;
 }
-.gb-entry .author_gravatar {
-    float:left;
-    text-align:center;
-}
-.gb-entry .author_gravatar .gravatar {
-    margin:2px auto;
-}
 .gb-entry .entry_date {
-    font-size:12px;
+    float:right;
+    font-size:10px;
 }
 .gb-entry .author_entry {
     width:auto;
     min-height:150px;
-    float:left;
+    float:none;
     padding:5px 10px;
-    border-left:1px solid #ccc;
     border-radius:4px;
     behavior:url('assets/css3pie/1.0.0/PIE.htc');
 }
@@ -61,18 +54,7 @@
     border:1px solid #ccc;
     background: #eee;
 }
-.noavatar .author_entry {
-    width:auto;
-    min-height:150px;
-    float:none;
-    padding:5px 10px;
-    border-left:0px solid #ccc;
-}
-.noavatar .entry_date {
-    float:right;
-    font-size:10px;
-}
-.noavatar .entry_links {
+.gb-entry .entry_links {
     width:auto;
     padding:5px 0;
     border-top:1px solid #ccc;
@@ -133,15 +115,6 @@
 }
 #guestbookform p {
     margin:0 0 .5em;
-}
-#notice {
-    padding:10px;
-    background-color:#FFD6D6;
-    border-top:2px solid #EF706F;
-    color:#C00;
-    border-right:2px solid #EF706F;
-    border-bottom:2px solid #EF706F;
-    border-left:4px solid #EF706F;
 }
 .clear {
     width:0;
