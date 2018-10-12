@@ -121,27 +121,3 @@
 #guestbookform p {
     margin: 0 0 .5em;
 }
-.clear {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    clear: both;
-    display: block;
-    visibility: hidden;
-}
-.clearfix:after {
-    height: 0;
-    clear: both;
-    display: block;
-    content: '.';
-    visibility: hidden;
-}
-.clearfix {
-    display: inline-block;
-}
-* html .clearfix {
-    height: 1%;
-}
-.clearfix {
-    display: block;
-}
