@@ -24,5 +24,5 @@ For installation add following lines to your composer.json in the root folder:
     
     
     
-Subsequently either run "php composer.phar update" from the command line (terminal, putty or whatsoever,
-or "Update PAakages" in the Contao Manager.
+Subsequently either run "php composer.phar update" from the command line (terminal, putty or whatsoever),
+or "Update Packages" in the Contao Manager.
