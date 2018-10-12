@@ -5,6 +5,7 @@ Simple Contao 4.x.x Guestbook Bundle derived from former "jedo/guestbook"
 @author     JD-WebService
 @package    GuestBook
 @license    GNU/LGPL
+@website    https://github.com/jedoStyle
 
 The extension has been stripped of it's avatar dependency, MSN and Skype support.
 
