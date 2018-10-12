@@ -1,5 +1,5 @@
 <!-- indexer::stop -->
-<div class="gb-entry clearfix <?php echo $this->class; ?>" id="<?php echo $this->id; ?>">
+<div class="gb-entry noavatar clearfix <?php echo $this->class; ?>" id="<?php echo $this->id; ?>">
 
 <span class="entry_date"><?php echo $this->date; ?></span>		
 <div class="author_entry"><h3 class="author-name"><?php echo $this->name ?> - <?php echo $this->place; ?> </h3>

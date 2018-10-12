@@ -1,5 +1,5 @@
 /***************************************************
-*		Modified G. Scherg 2018
+*		Modified G. Scherg 2016
 ***************************************************/
 
 .mod_guestbooklist {
@@ -21,6 +21,13 @@
     border-radius:4px;
     background: #fafafa url(./entry_grey.png) right top no-repeat;
 }
+.gb-entry .author_gravatar {
+    float:left;
+    text-align:center;
+}
+.gb-entry .author_gravatar .gravatar {
+    margin:2px auto;
+}
 .gb-entry .entry_date {
     font-size:12px;
 }
@@ -29,6 +36,7 @@
     min-height:150px;
     float:left;
     padding:5px 10px;
+    border-left:1px solid #ccc;
     border-radius:4px;
     behavior:url('assets/css3pie/1.0.0/PIE.htc');
 }
@@ -53,15 +61,31 @@
     border:1px solid #ccc;
     background: #eee;
 }
+.noavatar .author_entry {
+    width:auto;
+    min-height:150px;
+    float:none;
+    padding:5px 10px;
+    border-left:0px solid #ccc;
+}
+.noavatar .entry_date {
+    float:right;
+    font-size:10px;
+}
+.noavatar .entry_links {
+    width:auto;
+    padding:5px 0;
+    border-top:1px solid #ccc;
+    font-size:12px;
+}
 #guestbookform {
     padding:10px;
     top: 10px; left: 10px; right: 10px; bottom: 10px;
     background: #fafafa url(./entry_grey.png) no-repeat right bottom;
 }
 .mce-tinymce {
-    height: 200px !important;
     width: auto;
-    display:block;
+    display:inline-block;
     margin-bottom: 1em;
     padding: 3px;
     -webkit-box-shadow: 0 2px 6px rgba(51,51,51,.3);
@@ -83,7 +107,16 @@
     box-shadow: 0 2px 6px rgba(51,51,51,.3);
     border: 1px solid #ccc;
 }
-#guestbookform input.text:focus {
+#guestbookform input.captcha {
+    width:100px;
+    display:inline-block;
+    margin-bottom: 1em;
+    padding: 3px;
+    -webkit-box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    border: 1px solid #ccc;
+}
+#guestbookform input.text:focus, #guestbookform input.captcha:focus {
     border-color: #6480a5;
 }
 #guestbookform fieldset {
