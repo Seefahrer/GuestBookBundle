@@ -1,0 +1,136 @@
+/***************************************************
+*		Modified G. Scherg 2018
+***************************************************/
+
+.mod_guestbooklist {
+    padding: 10px;
+    width: auto;
+}
+.mod_guestbookform {
+    padding: 10px;
+    width: auto;
+    height:auto;
+}
+.gb-entry {
+    width:auto;
+    min-height:150px;
+    margin-top:20px;
+    margin-bottom:10px;
+    padding:5px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background: #fafafa url(./entry_grey.png) right top no-repeat;
+}
+.gb-entry .entry_date {
+    font-size:12px;
+}
+.gb-entry .author_entry {
+    width:auto;
+    min-height:150px;
+    float:left;
+    padding:5px 10px;
+    border-radius:4px;
+    behavior:url('assets/css3pie/1.0.0/PIE.htc');
+}
+.gb-entry .admin-entry,
+.gb-entry .entry-content {
+    display:block;
+    font-size:14px;
+    font-weight:normal;
+}
+.gb-entry h3.author-name {
+    width:auto;
+    margin-bottom:5px;
+    border-bottom:1px solid #ccc;
+    font-size:18px;
+    font-weight:bold;
+}
+.gb-entry .admin-entry fieldset {
+    border:1px solid #ccc;
+}
+.gb-entry .admin-entry legend {
+    padding:2px 10px;
+    border:1px solid #ccc;
+    background: #eee;
+}
+#guestbookform {
+    padding:10px;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    background: #fafafa url(./entry_grey.png) no-repeat right bottom;
+}
+.mce-tinymce {
+    height: 200px !important;
+    width: auto;
+    display:block;
+    margin-bottom: 1em;
+    padding: 3px;
+    -webkit-box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    border: 1px solid #ccc;
+}
+#guestbookform label {
+    display:block;
+    padding:5px;
+    font-size:12px;
+    color:#999;
+}
+#guestbookform input.text {
+    width:250px;
+    display:inline-block;
+    margin-bottom: 1em;
+    padding: 3px;
+    -webkit-box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    box-shadow: 0 2px 6px rgba(51,51,51,.3);
+    border: 1px solid #ccc;
+}
+#guestbookform input.text:focus {
+    border-color: #6480a5;
+}
+#guestbookform fieldset {
+    width:auto;
+    margin-bottom:15px;
+    padding:10px;
+    border:1px solid #51647c;
+    background:transparent;
+}
+#guestbookform legend {
+    padding:10px;
+    font-weight:bold;
+    color:#999;
+}
+#guestbookform p {
+    margin:0 0 .5em;
+}
+#notice {
+    padding:10px;
+    background-color:#FFD6D6;
+    border-top:2px solid #EF706F;
+    color:#C00;
+    border-right:2px solid #EF706F;
+    border-bottom:2px solid #EF706F;
+    border-left:4px solid #EF706F;
+}
+.clear {
+    width:0;
+    height:0;
+    overflow:hidden;
+    clear:both;
+    display:block;
+    visibility: hidden;
+}
+.clearfix:after {
+    height:0;
+    clear:both;
+    display:block;
+    content: '.';
+    visibility: hidden;
+}
+.clearfix {
+    display:inline-block;
+}
+* html .clearfix {
+    height:1%;
+}
+.clearfix {
+    display:block;
+}

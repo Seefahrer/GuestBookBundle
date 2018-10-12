@@ -1,0 +1,66 @@
+<!-- indexer::stop -->
+
+<?php if ($this->bbcode) : ?>
+    <script type="text/javascript" src="assets/tinymce4/js/tinymce.min.js"></script>
+    <script type="text/javascript">
+    tinyMCE.init({
+      mode : "textareas",
+      language: "<?php echo Backend::getTinyMceLanguage(); ?>",
+      plugins: "bbcode emoticons",
+      menubar: "",
+      statusbar: false,
+      toolbar: "| bold italic underline | undo redo | emoticons",
+      branding: false
+    });
+    </script>
+<?php endif; ?>
+
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+	<?php if ($this->headline): ?>
+		<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+	<?php endif; ?>
+	<?php if (!$this->protected): ?>
+	<div class="form" id="guestbookform">
+	<?php if ($this->confirm): ?>
+		<p class="confirm"><?php echo $this->confirm; ?></p>
+	<?php else: ?>
+	<form action="<?php echo $this->action; ?>" id="tl_guestbook" method="post">
+		<div class="formbody">
+            <input type="hidden" name="FORM_SUBMIT" value="tl_guestbook">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+            <?php echo $this->messages; ?>
+            <fieldset>
+                <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetname']; ?></legend>
+                <?php foreach ($this->fields as $field): ?>
+                  <?= $field->parse() ?>
+                <?php endforeach; ?>
+            </fieldset>
+
+          <fieldset>
+            <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
+              <p style="text-align:justify">
+                <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_forminfo']; ?>
+                <?php if ($this->moderate) : ?>
+                    <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
+                <?php endif; ?>
+                <div style="text-align:center">
+                    <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
+                </div>
+              </p>
+          </fieldset>
+      
+          <div class="submit_container">
+            <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
+            </button>
+          </div>
+            
+        </div>
+	</form>
+
+	<?php endif; ?>
+	</div>
+	<?php endif; ?>
+
+</div>
+
+<!-- indexer::continue -->
