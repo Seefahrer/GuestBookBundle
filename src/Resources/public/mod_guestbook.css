@@ -13,7 +13,7 @@
     height: auto;
 }
 .mod_guestbookform .mce-container {
-	width: auto !important;
+	  width: auto !important;
 }
 .gb-entry {
     font-family: Exo2, Exo, sans-serif;
@@ -72,6 +72,7 @@
     background: #fafafa url(./entry_grey.png) no-repeat right bottom;
 }
 .mce-tinymce {
+    height: 200px !important;
     width: auto;
     display: inline-block;
     margin-bottom: 1em;
