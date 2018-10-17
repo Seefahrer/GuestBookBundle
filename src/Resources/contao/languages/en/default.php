@@ -27,7 +27,7 @@ $GLOBALS['TL_LANG']['GUESTBOOK']['gb_captchahelp'] = '<p>Bitte geben Sie die Sum
 $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetname'] = 'Ihre Angaben';
 $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha'] ='Spamschutz';
 $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo'] ='Hinweis zum Datenschutz';
-$GLOBALS['TL_LANG']['GUESTBOOK']['gb_forminfo'] ='Mit dem Absenden des Formulars erkl&auml;ren Sie sich einverstanden, dass die erhobenen Daten elektronisch verarbeitet und bis auf Widerruf gespeichert werden. Ihre eMail-Adresse wird nicht ver&ouml;ffendlicht, Ihre IP-Adresse wird nicht erfasst bzw. gespeichert.<br />';
+$GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvoinfo'] ='Mit dem Absenden des Formulars erkl&auml;ren Sie sich einverstanden, dass die erhobenen Daten elektronisch verarbeitet und bis auf Widerruf gespeichert werden. Ihre eMail-Adresse wird nicht ver&ouml;ffendlicht, Ihre IP-Adresse wird nicht erfasst bzw. gespeichert.<br />';
 $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate'] = 'Ihr Beitrag wird im G&auml;stebuch erscheinen, sobald wir ihn freigegeben haben. Wir behalten uns vor, Beitr&auml;ge zu l&ouml;schen oder sie ggf. nicht freizugeben.';
 
 /************************************************************************************
