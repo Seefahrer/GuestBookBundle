@@ -6,7 +6,7 @@ Author     JD-WebService
 License    GNU/LGPL
 Website    https://github.com/jedoStyle
 
-The extension has been stripped of it's avatar dependency, MSN and Skype support.
+The extension has been stripped of it's avatar dependency, ICQ,MSN and Skype support.
 
 For installation add following lines to your composer.json in the root folder:
 
