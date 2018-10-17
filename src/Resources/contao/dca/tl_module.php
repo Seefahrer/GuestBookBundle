@@ -6,9 +6,10 @@
  * @license LGPL-3.0-or-later
  */
 
+System::loadLanguageFile('tl_content');
 
 // Add palettes to tl_module
-$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbooklist'] = '{title_legend},name,headline,type;{config_legend},gb_order,gb_perPage,gb_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 // Add fields to tl_module
@@ -50,6 +51,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['gb_moderate'] = array
 $GLOBALS['TL_DCA']['tl_module']['fields']['gb_bbcode'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_bbcode'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'w50'),
+    'sql'                     => "char(1) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableCaptcha'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableCaptcha'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),

@@ -26,35 +26,41 @@
 	<?php else: ?>
 	<form action="<?php echo $this->action; ?>" id="tl_guestbook" method="post">
 		<div class="formbody">
-            <input type="hidden" name="FORM_SUBMIT" value="tl_guestbook">
-            <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
-            <?php echo $this->messages; ?>
-            <fieldset>
-                <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetname']; ?></legend>
-                <?php foreach ($this->fields as $field): ?>
-                  <?= $field->parse() ?>
-                <?php endforeach; ?>
-            </fieldset>
-
-          <fieldset>
-            <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
-              <p style="text-align:justify">
-                <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_forminfo']; ?>
-                <?php if ($this->moderate) : ?>
-                    <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
-                <?php endif; ?>
-                <div style="text-align:center">
-                    <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
-                </div>
-              </p>
-          </fieldset>
-      
-          <div class="submit_container">
-            <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
-            </button>
-          </div>
+      <input type="hidden" name="FORM_SUBMIT" value="tl_guestbook">
+      <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+      <?php echo $this->messages; ?>
+      <fieldset>
+          <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetname']; ?></legend>
+          <?php foreach ($this->fields as $field): ?>
+            <?= $field->parse() ?>
+            <?php if ($field instanceof FormCaptcha) : ?>
+              <?php echo "</fieldset>\n\n<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
+              <?php echo $field->generateLabel(); ?> 
+              <?php echo $field->generateWithError(); ?> 
+              <?php echo $field->generateQuestion(); ?>
+              <?php echo "</fieldset>"; ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
+      </fieldset>
+      <fieldset>
+        <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
+          <p style="text-align:justify">
+            <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_forminfo']; ?>
+            <?php if ($this->moderate) : ?>
+                <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
+            <?php endif; ?>
+            <div style="text-align:center">
+                <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
+            </div>
+          </p>
+      </fieldset>
+  
+      <div class="submit_container">
+        <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
+        </button>
+      </div>
             
-        </div>
+    </div>
 	</form>
 
 	<?php endif; ?>

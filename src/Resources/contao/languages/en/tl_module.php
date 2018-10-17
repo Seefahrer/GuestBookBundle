@@ -11,6 +11,8 @@ $GLOBALS['TL_LANG']['tl_module']['gb_order']          = array('Sortierreihenfolg
 $GLOBALS['TL_LANG']['tl_module']['gb_perPage']        = array('Einträge pro Seite', 'Die Anzahl der Einträge pro Seite. Geben Sie 0 ein, um den automatischen Seitenumbruch zu deaktivieren.');
 $GLOBALS['TL_LANG']['tl_module']['gb_moderate']       = array('Moderieren', 'Einträge bestätigen, bevor sie auf der Webseite veröffentlicht werden.');
 $GLOBALS['TL_LANG']['tl_module']['gb_bbcode']         = array('BBCode erlauben', 'Besuchern das Formatieren ihrer Einträge mittels BBCode erlauben.');
+$GLOBALS['TL_LANG']['tl_module']['gb_disableCaptcha'] = array('Sicherheitsfrage deaktivieren', 'Hier können Sie die Sicherheitsfrage abschalten (nicht empfohlen).');
+
 $GLOBALS['TL_LANG']['tl_module']['gb_disableURL'] = array('Formularfeld: Homepage deaktivieren', 'Hier können Sie dieses Eingabefeld abschalten.');
 $GLOBALS['TL_LANG']['tl_module']['gb_template']       = array('Template', 'Hier können Sie das Template der Einträge auswählen.');
 $GLOBALS['TL_LANG']['tl_module']['gb_jumpTo']       = array('Redirect Einstellung', 'Hier können Sie die Seite auswählen zu der der User gelangt nachdem das Formular abgeschickt wurde.');

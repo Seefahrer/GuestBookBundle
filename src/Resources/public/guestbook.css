@@ -65,6 +65,9 @@
     border-top: 1px solid #ccc;
     font-size: 12px;
 }
+.gb-entry h3 {
+    color: #717c8e;
+}
 #guestbookform {
     position: static;
     padding: 10px;

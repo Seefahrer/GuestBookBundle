@@ -1,12 +1,12 @@
 {
     "name": "jedo/contao-guestbook-bundle",
-    "keywords": ["contao","guestbook"],
+    "keywords": ["contao4","guestbook","bundle"],
     "type": "contao-bundle",
     "description": "Contao 4 Simple Guestbook Extension",
     "license": "LGPL-3.0+",
     "authors": [
         {
-          "name": "Jens Doberenz"
+          "name": "Jens Doberenz & Georg Scherg"
         }
     ],
     "require": {
@@ -14,7 +14,6 @@
         "contao/core-bundle": "^4"
     },
     "conflict": {
-        "contao/core": "*",
         "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "autoload": {
@@ -33,5 +32,5 @@
     },
     "extra": {
         "contao-manager-plugin": "Jedo\\GuestBookBundle\\ContaoManager\\Plugin"
-    } 
+    }
 }

@@ -88,6 +88,12 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
         '__selector__'                => array('redirect'),
         'default'                     => '{author_legend},name,email,place,website;{message_legend},titel,message;{date_legend:hide},tstamp,date;{comment_legend:hide},comment;{published_legend},published',
     ),
+
+    // Subpalettes
+	'subpalettes' => array
+	(
+		'addComment'                    => 'author,comment'
+    ),
     
     // Fields
     'fields' => array

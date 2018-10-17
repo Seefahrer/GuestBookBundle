@@ -70,10 +70,10 @@ class GuestBookForm extends Module
         (
             'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_place'],
             'name' => 'gbplace',
-            'value' => $this->User->place,  
+            'value' => $this->User->place,
             'inputType' => 'text',
             'eval' => array('mandatory'=>true, 'maxlength'=>128)
-        ), 
+        ),
             'email' => array
         (
             'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_email'],
@@ -82,7 +82,7 @@ class GuestBookForm extends Module
             'inputType' => 'text',
             'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'tl_class'=>'w50')
         )
-        ); 
+        );
         if (!$this->gb_disableURL)
         {
             $arrFields['website'] = array
@@ -120,6 +120,17 @@ class GuestBookForm extends Module
                 'inputType' => 'textarea',
                 'eval' => array( 'mandatory'=>true, 'rows'=>10, 'cols'=>75, 'allowHtml'=>true)
             );
+        }
+        // Captcha
+		if (!$this->gb_disableCaptcha)
+		{
+			$arrFields['captcha'] = array
+			(
+				'name'      => 'gbcaptcha',
+				'label'     => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_captcha'],
+				'inputType' => 'captcha',
+				'eval'      => array('mandatory'=>true)
+			);
 		}
         if ($this->gb_moderate)
         {
@@ -191,7 +202,7 @@ class GuestBookForm extends Module
     * - [quote][/quote]
     * - [quote=tim][/quote]
     * - [url][/url]
-    * - [url=http://][/url]
+    * - [url=https://][/url]
     * - [email][/email]
     * - [email=name@domain.com][/email]
     */
@@ -201,10 +212,10 @@ class GuestBookForm extends Module
 
 
         $strWebsite = $this->Input->post('gbwebsite');
-        // Add http:// to website
+        // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite))
         {
-            $strWebsite = 'http://' . $strWebsite;
+            $strWebsite = 'https://' . $strWebsite;
         }
         $strComment = trim($this->Input->post('gbmessage', true));
         // Replace bbcode
@@ -302,9 +313,7 @@ class GuestBookForm extends Module
             $arrSet['website'] = $strWebsite;
         }
 
-        //$insert = $this->Database->prepare("INSERT INTO  tl_guestbook %s")->set($arrSet)->execute();
         $insertId = $this->Database->prepare("INSERT INTO tl_guestbook %s")->set($arrSet)->execute()->insertId;
-
 
         // Inform admin
         // Notification
