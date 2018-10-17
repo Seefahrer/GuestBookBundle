@@ -1,5 +1,5 @@
 # GuestBookBundle
-Simple Contao 4.x.x Guestbook Bundle derived from former "jedo/guestbook"
+Simple Contao 4.x.x Guestbook Bundle derived from former "jedoStyle/guestbook"
 
 Copyright &#40;C&#41; 2008 - 2009 JD-WebService. All rights reserved.
 Author     JD-WebService
