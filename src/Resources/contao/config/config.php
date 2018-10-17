@@ -9,7 +9,7 @@
 
 if (TL_MODE == 'FE')
 {
-    $GLOBALS['TL_CSS'][]  = 'bundles/jedoguestbook/mod_guestbook.css';
+    $GLOBALS['TL_CSS'][]  = 'bundles/jedoguestbook/guestbook.min.css';
 }
 
 // Front end modules

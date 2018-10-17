@@ -11,7 +11,7 @@
 
 <?php if ($this->comment): ?>
     <div class="admin-entry">
-        <fieldset><legend>Das sagt Frl. Stina dazu ...</legend>
+        <fieldset><legend>Unser Kommentar ...</legend>
          <?php echo $this->comment; ?>
         </fieldset>
     </div>
