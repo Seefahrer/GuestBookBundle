@@ -33,15 +33,15 @@
           <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetname']; ?></legend>
           <?php foreach ($this->fields as $field): ?>
             <?= $field->parse() ?>
-            <?php if ($field instanceof FormCaptcha): ?>
-              <?php echo "</fieldset>\n<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
-              <?php echo $field->generateLabel(); ?> 
-              <?php echo $field->generateWithError(); ?> 
-              <?php echo $field->generateQuestion(); ?>
-              <?php echo "</fieldset>"; ?>
-            <?php endif; ?>
           <?php endforeach; ?>
       </fieldset>
+      <?php if (!$this->disableCaptcha): ?>
+          <?php echo "</fieldset>\n<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
+          <?php echo $field->generateLabel(); ?> 
+          <?php echo $field->generateWithError(); ?> 
+          <?php echo $field->generateQuestion(); ?>
+          <?php echo "</fieldset>"; ?>
+      <?php endif; ?>
       <fieldset>
         <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
           <p style="text-align:justify">
