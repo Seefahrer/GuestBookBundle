@@ -36,7 +36,7 @@
           <?php endforeach; ?>
       </fieldset>
       <?php if (!$this->disableCaptcha): ?>
-          <?php echo "</fieldset>\n<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
+          <?php echo "<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
           <?php echo $field->generateLabel(); ?> 
           <?php echo $field->generateWithError(); ?> 
           <?php echo $field->generateQuestion(); ?>
