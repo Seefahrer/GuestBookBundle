@@ -35,7 +35,7 @@
             <?= $field->parse() ?>
           <?php endforeach; ?>
       </fieldset>
-      <?php if (!$this->disableCaptcha): ?>
+      <?php if ($field instanceof FormCaptcha): ?>
           <?php echo "<fieldset><legend>". $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldsetcaptcha']."</legend>"; ?>
           <?php echo $field->generateLabel(); ?> 
           <?php echo $field->generateWithError(); ?> 
