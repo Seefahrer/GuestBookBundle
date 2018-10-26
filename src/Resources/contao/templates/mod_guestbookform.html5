@@ -51,9 +51,11 @@
                 <?php if ($this->moderate) : ?>
                     <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
                 <?php endif; ?>
-                <div style="text-align:center">
-                    <a href="{{link_url::<?php echo $this->gb_DSGVOpagelink ?>}}">Weitere Informationen zum Datenschutz</a>
-                </div>
+                <?php if ($this->gb_DSGVOpagelink) : ?>
+                    <div style="text-align:center">
+                        <a href="{{link_url::<?php echo $this->gb_DSGVOpagelink ?>}}">Weitere Informationen zum Datenschutz</a>
+                    </div>
+                <?php endif; ?>
             </p>
         </fieldset>
       <?php else: ?>
