@@ -52,7 +52,7 @@
                     <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
                 <?php endif; ?>
                 <div style="text-align:center">
-                    <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
+                    <a href="{{link_url::<?php echo $this->gb_DSGVOpagelink ?>}}">Weitere Informationen zum Datenschutz</a>
                 </div>
             </p>
         </fieldset>
