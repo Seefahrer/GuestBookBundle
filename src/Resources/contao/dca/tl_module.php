@@ -9,7 +9,15 @@
 System::loadLanguageFile('tl_content');
 
 // Add palettes to tl_module
+<<<<<<< HEAD
+<<<<<<< HEAD
+$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha,gb_disableDSGVO,gb_DSGVOpagelink;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+=======
 $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
+=======
+$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
 $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbooklist'] = '{title_legend},name,headline,type;{config_legend},gb_order,gb_perPage,gb_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 // Add fields to tl_module
@@ -64,6 +72,28 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableCaptcha'] = array
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
+<<<<<<< HEAD
+<<<<<<< HEAD
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableDSGVO'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableDSGVO'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'w50'),
+    'sql'                     => "char(1) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_DSGVOpagelink'] = array 
+( 
+    'label' => &$GLOBALS['TL_LANG']['tl_module']['gb_DSGVOpagelink'], 
+    'exclude'                 => true,
+    'inputType'               => 'pageTree',
+    'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
+    'sql' => "varchar(255) NOT NULL default ''" 
+);
+=======
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
+=======
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
 $GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableURL'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableURL'],

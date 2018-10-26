@@ -42,6 +42,33 @@
           <?php echo $field->generateQuestion(); ?>
           <?php echo "</fieldset>"; ?>
       <?php endif; ?>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+      <?php if (!$this->gb_disableDSGVO): ?>
+        <fieldset>
+            <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
+            <p style="text-align:justify">
+                <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvoinfo']; ?>
+                <?php if ($this->moderate) : ?>
+                    <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
+                <?php endif; ?>
+                <div style="text-align:center">
+                    <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
+                </div>
+            </p>
+        </fieldset>
+      <?php else: ?>
+        <?php if ($this->moderate) : ?>
+            <fieldset>
+            <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
+            </fieldset>
+        <?php endif; ?> 
+      <?php endif; ?>
+
+=======
+=======
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
       <fieldset>
         <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
           <p style="text-align:justify">
@@ -55,6 +82,10 @@
           </p>
       </fieldset>
   
+<<<<<<< HEAD
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
+=======
+>>>>>>> 45ea18e084ff93b27a4ab203025d73bd450a9467
       <div class="submit_container">
         <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
         </button>
