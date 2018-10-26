@@ -7,6 +7,7 @@ License    GNU/LGPL
 Website    https://github.com/jedoStyle
 
 The extension has been stripped of it's avatar dependency, ICQ,MSN and Skype support.
+DSGVO support and link to DSGVO notice page has been added.
 
 For installation add following lines to your composer.json in the root folder:
 
