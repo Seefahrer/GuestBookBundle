@@ -6,7 +6,9 @@
  * @license LGPL-3.0-or-later
  */
 
-// namespace Jedo\GuestBookBundle;
+namespace Contao;
+
+use Contao\CoreBundle\Exception\PageNotFoundException;
 
 class GuestBookForm extends Module
 {
