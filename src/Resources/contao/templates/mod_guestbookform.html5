@@ -64,19 +64,6 @@
         <?php endif; ?> 
       <?php endif; ?>
 
-      <fieldset>
-        <legend><?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvo']; ?></legend>
-          <p style="text-align:justify">
-            <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_dsgvoinfo']; ?>
-            <?php if ($this->moderate) : ?>
-                <?php echo $GLOBALS['TL_LANG']['GUESTBOOK']['gb_fieldmoderate']; ?><br />
-            <?php endif; ?>
-            <div style="text-align:center">
-                <a href="{{article_url::datenschutzerklaerung}} ">Weitere Informationen zum Datenschutz</a>
-            </div>
-          </p>
-      </fieldset>
-  
       <div class="submit_container">
         <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
         </button>
