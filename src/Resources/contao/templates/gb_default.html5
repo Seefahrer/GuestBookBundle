@@ -21,7 +21,7 @@
 
 <?php if ($this->website): ?>
     <div class="entry_links">
-        <?php echo '<span><a href="'. $this->website .'" onclick="window.open(this.href); return false;"><img src="bundles/jedoguestbook/con_homepage.png" alt="Homepage" />' . $this->website . '</a></span>' ?>
+        <?php echo '<span><a href="'. $this->website .'" onclick="window.open(this.href); return false;"><img src="bundles/seefahrerguestbook/con_homepage.png" alt="Homepage" />' . $this->website . '</a></span>' ?>
     </div>
 <?php endif; ?>
 

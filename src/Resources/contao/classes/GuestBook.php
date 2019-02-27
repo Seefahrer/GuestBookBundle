@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-// namespace Jedo\GuestBookBundle;
+// namespace Seefahrer\GuestBookBundle;
 
 class GuestBook extends Module
 {

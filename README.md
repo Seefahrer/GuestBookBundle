@@ -13,7 +13,7 @@ For installation add following lines to your composer.json in the root folder:
 
     "require": {
         ...   
-        "jedo/contao-guestbook-bundle": "dev-master"
+        "seefahrer/contao-guestbook-bundle": "dev-master"
     },
     "repositories": [
         {

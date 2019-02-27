@@ -5,7 +5,7 @@
     <script type="text/javascript">
     tinyMCE.init({
       mode : "specific_textareas",
-      editor_deselector : "footer_contact",
+      editor_deselector : "no_mce",
       language: "<?php echo Backend::getTinyMceLanguage(); ?>",
       plugins: "bbcode emoticons",
       menubar: "",

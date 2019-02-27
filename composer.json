@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-          "Jedo\\GuestBookBundle\\": "src/"
+          "Seefahrer\\GuestBookBundle\\": "src/"
         },
         "classmap": [
           "src/Resources/contao"

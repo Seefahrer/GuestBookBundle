@@ -9,7 +9,7 @@
 
 if (TL_MODE == 'FE')
 {
-    $GLOBALS['TL_CSS'][]  = 'bundles/jedoguestbook/guestbook.min.css';
+    $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 }
 
 // Front end modules
@@ -28,8 +28,8 @@ array_insert($GLOBALS['BE_MOD']['content'], 2, array
     'guestbook' => array
     (
         'tables' => array('tl_guestbook'),
-        'icon'   => 'bundles/jedoguestbook/icon.png',
-        'stylesheet' => 'bundles/jedoguestbook/style.css'
+        'icon'   => 'bundles/seefahrerguestbook/icon.png',
+        'stylesheet' => 'bundles/seefahrerguestbook/style.css'
     )
 ));
 ?>

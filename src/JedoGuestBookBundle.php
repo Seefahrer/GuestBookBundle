@@ -8,11 +8,11 @@
  * @license LGPL-3.0+
  */
 
-namespace Jedo\GuestBookBundle;
+namespace Seefahrer\GuestBookBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 // Configures the contao-guestbook-bundle
-class JedoGuestBookBundle extends Bundle
+class SeefahrerGuestBookBundle extends Bundle
 {
 }
