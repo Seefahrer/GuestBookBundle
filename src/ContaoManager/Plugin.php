@@ -19,7 +19,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create('Seefahrer\GuestBookBundle\JedoGuestBookBundle')
+            BundleConfig::create('Seefahrer\GuestBookBundle\SeefahrerGuestBookBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle'])
                 ->setReplace(['guestbook']),
         ];
