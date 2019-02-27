@@ -31,6 +31,6 @@
         ]
     },
     "extra": {
-        "contao-manager-plugin": "Jedo\\GuestBookBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Seefahrer\\GuestBookBundle\\ContaoManager\\Plugin"
     }
 }
