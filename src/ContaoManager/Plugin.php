@@ -4,7 +4,7 @@
  *
  */
 
-namespace Jedo\GuestBookBundle\ContaoManager;
+namespace Seefahrer\GuestBookBundle\ContaoManager;
 
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
