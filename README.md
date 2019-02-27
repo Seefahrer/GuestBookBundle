@@ -17,7 +17,7 @@ For installation add following lines to your composer.json in the root folder:
     },
     "repositories": [
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/Seefahrer/GuestBookBundle"
         }
     ],
