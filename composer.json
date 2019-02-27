@@ -1,12 +1,12 @@
 {
-    "name": "jedo/contao-guestbook-bundle",
+    "name": "seefahrer/contao-guestbook-bundle",
     "keywords": ["contao4","guestbook","bundle"],
     "type": "contao-bundle",
     "description": "Contao 4 Simple Guestbook Extension",
     "license": "LGPL-3.0+",
     "authors": [
         {
-          "name": "Jens Doberenz & Georg Scherg"
+          "name": "Georg Scherg"
         }
     ],
     "require": {
