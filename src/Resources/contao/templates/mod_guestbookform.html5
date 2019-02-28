@@ -4,8 +4,7 @@
     <script type="text/javascript" src="assets/tinymce4/js/tinymce.min.js"></script>
     <script type="text/javascript">
     tinyMCE.init({
-      mode : "specific_textareas",
-      editor_deselector : "no_mce",
+      selector: '#guestbookform textarea',
       language: "<?php echo Backend::getTinyMceLanguage(); ?>",
       plugins: "bbcode emoticons",
       menubar: "",
