@@ -1,7 +1,7 @@
 <!-- indexer::stop -->
 
 <?php if ($this->bbcode) : ?>
-    <script type="text/javascript" src="assets/tinymce4/js/tinymce.min.js"></script>
+    <script type="text/javascript" src="<?= \Contao\System::getContainer()->get('contao.assets.assets_context')->getStaticUrl() ?>assets/tinymce4/js/tinymce.min.js"></script>
     <script type="text/javascript">
     tinyMCE.init({
       selector: '#guestbookform textarea',
