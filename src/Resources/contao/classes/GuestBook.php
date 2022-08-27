@@ -8,16 +8,14 @@
 
 //namespace Seefahrer\GuestBookBundle\GuestBook;
 
-class GuestBook extends Module
-{
+class GuestBook extends Module {
     /** * Template * @var string */
     protected $strTemplate = 'mod_guestbook';
     /** * Display a wildcard in the back end * @return string */
    
 
-    public function generate()
-    {
-        if (TL_MODE == 'BE')
+    public function generate() {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK ENTRIES ###';
@@ -30,14 +28,12 @@ class GuestBook extends Module
         return parent::generate();
     }
     /** * Generate module */
-    protected function compile()
-    {
+    protected function compile() {
         $limit = null;
         $arrComments = array();
         $hasBackendUser = System::getContainer()->get('contao.security.token_checker')->hasBackendUser();
         // Pagination
-        if ($this->gb_perPage > 0)
-        {
+        if ($this->gb_perPage > 0) {
             $page = $this->Input->get('page') ? $this->Input->get('page') : 1;
             $limit = $this->gb_perPage;
             $offset = ($page - 1) * $this->gb_perPage;
@@ -49,19 +45,16 @@ class GuestBook extends Module
         }
         // Get all published comments
         $gbEntriesStmt = $this->Database->prepare("SELECT * FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "") . " ORDER BY date" . (($this->gb_order == 'descending') ? " DESC" : ""));
-        if ($limit)
-        {
+        if ($limit) {
             $gbEntriesStmt->limit($limit, $offset);
         }
         $gbEntries = $gbEntriesStmt->execute($this->id);
 
         $total = $gbEntries->numRows;
-        if ($total > 0)
-        {
+        if ($total > 0) {
             $count = 0;
             $objTemplate = new FrontendTemplate($this->gb_template);
-            while ($gbEntries->next())
-            {   
+            while ($gbEntries->next()) {   
                 $objTemplate->name = $gbEntries->name;
                 $objTemplate->place = $gbEntries->place;
                 $objTemplate->email = $gbEntries->email;
