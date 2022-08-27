@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-if (System::getContainer()->get('contao.routing.scope_matcher')->isFrontendRequest(System::getContainer()->get('request_stack')->getCurrentRequest())) {
+if (System::getContainer()->get('contao.routing.scope_matcher')->isFrontendRequest()) {
     $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 }
 
