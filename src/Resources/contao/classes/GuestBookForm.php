@@ -25,7 +25,7 @@ class GuestBookForm extends Module
     */
     public function generate()
     {
-        if (System::scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest()))
+        if (scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
