@@ -49,7 +49,7 @@ class GuestBookForm extends Module
 
 
     {
-        if (isBackend())
+        if (Scope::isBackend())
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
