@@ -8,14 +8,11 @@
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
-class GuestBookForm extends Module
-{   
+class GuestBookForm extends Module {   
     protected $strTemplate = 'mod_guestbookform';
 
-    public function generate()
-    {
-        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
-        {
+    public function generate() {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest())) {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
             $objTemplate->title = $this->headline;
@@ -29,30 +26,24 @@ class GuestBookForm extends Module
     /**
     * Generate module
     */
-    protected function compile()
-    {
+    protected function compile() {
         // Get front end user object
         $this->import('FrontendUser', 'User');
         // Access control
-        if ($this->protected && !System::getContainer()->get('contao.security.token_checker')->hasBackendUser())
-        {
-            if (!System::getContainer()->get('contao.security.token_checker')->hasFrontendUser())
-            {
+        if ($this->protected && !System::getContainer()->get('contao.security.token_checker')->hasBackendUser()) {
+            if (!System::getContainer()->get('contao.security.token_checker')->hasFrontendUser()) {
                 $this->Template->protected = true;
                 return;
             }
             $arrGroups = StringUtil::deserialize($this->groups);
-            if (is_array($arrGroups) && count(array_intersect($this->User->groups, $arrGroups)) < 1)
-            {
+            if (is_array($arrGroups) && count(array_intersect($this->User->groups, $arrGroups)) < 1) {
                 $this->Template->protected = true;
                 return;
             }
         }
         // Form fields
-        $arrFields = array
-        (
-            'name' => array
-        (
+        $arrFields = array (
+            'name' => array (
             'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_name'],
             'name' => 'gbname',
             'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
