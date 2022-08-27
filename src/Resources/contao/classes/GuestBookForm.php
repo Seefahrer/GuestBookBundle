@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Contao;
+namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
 use Contao\CoreBundle\Exception\PageNotFoundException;
 use Contao\CoreBundle\Routing\ScopeMatcher;
@@ -361,4 +361,3 @@ class GuestBookForm extends Module
         $this->jumpToOrReload($this->jumpTo);
     }
 }
-?>
