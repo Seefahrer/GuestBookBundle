@@ -13,7 +13,7 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 
 class GuestBookForm extends Module 
 {
-    /*
+    /**
     * Template
     * @var string
     */
