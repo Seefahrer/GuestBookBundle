@@ -9,6 +9,8 @@
 namespace Contao;
 
 use Contao\CoreBundle\Exception\PageNotFoundException;
+use Contao\CoreBundle\Routing\ScopeMatcher;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class GuestBookForm extends Module
 {
@@ -43,14 +45,14 @@ class GuestBookForm extends Module
         // Get front end user object
         $this->import('FrontendUser', 'User');
         // Access control
-        if ($this->protected && !BE_USER_LOGGED_IN)
+        if ($this->protected && !System::getContainer()->get('contao.security.token_checker')->hasBackendUser())
         {
             if (!System::getContainer()->get('contao.security.token_checker')->hasFrontendUser())
             {
                 $this->Template->protected = true;
                 return;
             }
-            $arrGroups = deserialize($this->groups);
+            $arrGroups = StringUtil::deserialize($this->groups);
             if (is_array($arrGroups) && count(array_intersect($this->User->groups, $arrGroups)) < 1)
             {
                 $this->Template->protected = true;

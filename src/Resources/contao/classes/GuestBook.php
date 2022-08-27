@@ -8,6 +8,9 @@
 
 // namespace Seefahrer\GuestBookBundle;
 
+use Contao\CoreBundle\Routing\ScopeMatcher;
+use Symfony\Component\HttpFoundation\RequestStack;
+
 class GuestBook extends Module
 {
     /** * Template * @var string */
@@ -32,9 +35,9 @@ class GuestBook extends Module
     {
         $limit = null;
         $arrComments = array();
-        $hasBackendUser = System::getContainer()->get('contao.security.token_checker')->hasBackendUser()
+        $hasBackendUser = System::getContainer()->get('contao.security.token_checker')->hasBackendUser();
         // Pagination
-    if ($this->gb_perPage > 0)
+        if ($this->gb_perPage > 0)
         {
             $page = $this->Input->get('page') ? $this->Input->get('page') : 1;
             $limit = $this->gb_perPage;
