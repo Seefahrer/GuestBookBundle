@@ -15,10 +15,17 @@ class GuestBookForm extends Module
 {
    
     protected $strTemplate = 'mod_guestbookform';
+
+    private $scopeMatcher; 
+
+    public function __construct(ScopeMatcher $scopeMatcher) 
+    { 
+        $this->scopeMatcher = $scopeMatcher; 
+    } 
    
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        if ($this->scopeMatcher->isBackendRequest())
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
