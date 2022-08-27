@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Seefahrer\GuestBookBundle\GuestBookForm;
+//namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
 class GuestBookForm extends Module
 {   
