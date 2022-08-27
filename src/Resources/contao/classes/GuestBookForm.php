@@ -12,9 +12,31 @@ use Contao\CoreBundle\Exception\PageNotFoundException;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class GuestBookForm extends Module
+class Scope
 {
-    /**
+    private $requestStack;
+    private $scopeMatcher;
+
+    public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
+    {
+        $this->requestStack = $requestStack;
+        $this->scopeMatcher = $scopeMatcher;
+    }
+
+    public function isBackend()
+    {
+        return $this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest());
+    }
+
+    public function isFrontend()
+    {
+        return $this->scopeMatcher->isFrontendRequest($this->requestStack->getCurrentRequest());
+    }
+}
+
+class GuestBookForm extends Module
+
+{   /**
     * Template
     * @var string
     */
@@ -27,7 +49,7 @@ class GuestBookForm extends Module
 
 
     {
-        if (TL_MODE == 'BE')
+        if (isBackend())
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
