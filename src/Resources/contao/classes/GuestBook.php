@@ -15,7 +15,7 @@ class GuestBook extends Module
     /** * Display a wildcard in the back end * @return string */
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK ENTRIES ###';
@@ -32,6 +32,7 @@ class GuestBook extends Module
     {
         $limit = null;
         $arrComments = array();
+        $hasBackendUser = System::getContainer()->get('contao.security.token_checker')->hasBackendUser()
         // Pagination
     if ($this->gb_perPage > 0)
         {
@@ -39,13 +40,13 @@ class GuestBook extends Module
             $limit = $this->gb_perPage;
             $offset = ($page - 1) * $this->gb_perPage;
             // Get total number of comments
-            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!BE_USER_LOGGED_IN ? " WHERE published=1" : "")) ->execute($this->id);
+            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "")) ->execute($this->id);
             // Add pagination menu
             $objPagination = new Pagination($objTotal->count, $this->gb_perPage);
             $this->Template->pagination = $objPagination->generate("\n ");
         }
         // Get all published comments
-        $gbEntriesStmt = $this->Database->prepare("SELECT * FROM tl_guestbook" . (!BE_USER_LOGGED_IN ? " WHERE published=1" : "") . " ORDER BY date" . (($this->gb_order == 'descending') ? " DESC" : ""));
+        $gbEntriesStmt = $this->Database->prepare("SELECT * FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "") . " ORDER BY date" . (($this->gb_order == 'descending') ? " DESC" : ""));
         if ($limit)
         {
             $gbEntriesStmt->limit($limit, $offset);
@@ -78,4 +79,3 @@ class GuestBook extends Module
         $this->Template->comments = $arrComments;
     }
 }
-?>

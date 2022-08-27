@@ -23,7 +23,7 @@ class GuestBookForm extends Module
     */
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
@@ -45,7 +45,7 @@ class GuestBookForm extends Module
         // Access control
         if ($this->protected && !BE_USER_LOGGED_IN)
         {
-            if (!FE_USER_LOGGED_IN)
+            if (!System::getContainer()->get('contao.security.token_checker')->hasFrontendUser())
             {
                 $this->Template->protected = true;
                 return;
