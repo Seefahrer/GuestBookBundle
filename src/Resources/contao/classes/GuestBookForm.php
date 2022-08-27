@@ -44,106 +44,81 @@ class GuestBookForm extends Module {
         // Form fields
         $arrFields = array (
             'name' => array (
-            'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_name'],
-            'name' => 'gbname',
-            'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
-            'inputType' => 'text',
-            'eval' => array('mandatory'=>true, 'maxlength'=>128)
-        ),
-            'place' => array
-        (
-            'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_place'],
-            'name' => 'gbplace',
-            'value' => $this->User->place,
-            'inputType' => 'text',
-            'eval' => array('mandatory'=>true, 'maxlength'=>128)
-        ),
-            'email' => array
-        (
-            'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_email'],
-            'name' => 'gbemail',
-            'value' => $this->User->email,
-            'inputType' => 'text',
-            'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'tl_class'=>'w50')
-        )
+                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_name'],
+                'name' => 'gbname',
+                'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
+                'inputType' => 'text',
+                'eval' => array('mandatory'=>true, 'maxlength'=>128)
+            ),
+            'place' => array (
+                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_place'],
+                'name' => 'gbplace',
+                'value' => $this->User->place,
+                'inputType' => 'text',
+                'eval' => array('mandatory'=>true, 'maxlength'=>128)
+            ),
+            'email' => array (
+                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_email'],
+                'name' => 'gbemail',
+                'value' => $this->User->email,
+                'inputType' => 'text',
+                'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'tl_class'=>'w50')
+            )
         );
-        if (!$this->gb_disableURL)
-        {
-            $arrFields['website'] = array
-        (
-            'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_website'],
-            'name' => 'gbwebsite',
-            'value' => $this->User->website,
-            'inputType' => 'text',
-            'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true,'tl_class'=>'w50')
-        );
+        if (!$this->gb_disableURL) {
+            $arrFields['website'] = array (
+                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_website'],
+                'name' => 'gbwebsite',
+                'value' => $this->User->website,
+                'inputType' => 'text',
+                'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true,'tl_class'=>'w50')
+            );
         }
         // Title field
-        $arrFields['titel'] = array
-        (
+        $arrFields['titel'] = array (
             'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_titel'] ,
             'name' => 'gbtitel',
             'inputType' => 'text',
             'eval' => array( 'mandatory'=>true, 'maxlength'=>128)
         );
-        if ($this->gb_bbcode)
-        {
         // Comment field
-            $arrFields['message'] = array
-            (
-                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_message'] ,
-                'name' => 'gbmessage',
-                'inputType' => 'textarea',
-                'eval' => array('rows'=>10, 'cols'=>75, 'allowHtml'=>true)
-            );
-		}else {
-            $arrFields['message'] = array
-            (
-                'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_message'] ,
-                'name' => 'gbmessage',
-                'inputType' => 'textarea',
-                'eval' => array( 'mandatory'=>true, 'rows'=>10, 'cols'=>75, 'allowHtml'=>true)
-            );
-        }
+        $arrFields['message'] = array (
+            'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_message'] ,
+            'name' => 'gbmessage',
+            'inputType' => 'textarea',
+            'eval' => array('rows'=>10, 'cols'=>75, 'allowHtml'=>true)
+        );
         // Captcha
-		if (!$this->gb_disableCaptcha)
-		{
-			$arrFields['captcha'] = array
-			(
+		if (!$this->gb_disableCaptcha) {
+			$arrFields['captcha'] = array (
 				'name'      => 'gbcaptcha',
 				'label'     => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_captcha'],
 				'inputType' => 'captcha',
 				'eval'      => array('mandatory'=>true)
 			);
 		}
-        if ($this->gb_moderate)
-        {
+        if ($this->gb_moderate) {
             $this->Template->moderate = true;
         }
-        if ($this->gb_bbcode)
-        {
+        if ($this->gb_bbcode) {
             $this->Template->bbcode = true;
         }
         $doNotSubmit = false;
         $arrWidgets = array();
 
         // Initialize widgets
-        foreach ($arrFields as $arrField)
-        {
+        foreach ($arrFields as $arrField) {
             $strClass = $GLOBALS['TL_FFL'][$arrField['inputType']];
             // Continue if the class is not defined
-            if (!$this->classFileExists($strClass))
-            {
+            if (!$this->classFileExists($strClass)) {
                 continue;
             }
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
             $objWidget = new $strClass($this->prepareForWidget($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
-            if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook')
-            {
+            if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
-                if ($objWidget->hasErrors())
-                {
+                if ($objWidget->hasErrors()) {
                     $doNotSubmit = true;
                 }
             }
@@ -155,23 +130,21 @@ class GuestBookForm extends Module {
         $this->Template->messages = $this->getMessages();
 
         // Confirmation message
-        if ($_SESSION['TL_GUESTBOOKENTRIE_ADDED'])
-        {
+        if ($_SESSION['TL_GUESTBOOKENTRIE_ADDED']) {
             $this->Template->confirm = $GLOBALS['TL_LANG']['GUESTBOOK']['confirm'];
             $_SESSION['TL_GUESTBOOKENTRIE_ADDED'] = false;
         }
         // Add comment
-        if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit)
-        {
+        if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
             $this->addGbEntrie();
             // Pending for approval
-            if ($this->gb_moderate)
-            {
+            if ($this->gb_moderate) {
                 $_SESSION['TL_GUESTBOOKENTRIE_ADDED'] = true;
             }
             $this->reload();
         }
     }
+    
     /**
     * Replace bbcode and add the comment to the database
     *
@@ -190,70 +163,65 @@ class GuestBookForm extends Module {
     * - [email][/email]
     * - [email=name@domain.com][/email]
     */
-    protected function addGbEntrie()
-    {
-			$this->import('StringUtil');
-
-
+    protected function addGbEntrie() {
+		
         $strWebsite = $this->Input->post('gbwebsite');
         // Add https:// to website
-        if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite))
-        {
+        if (mb_strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
         $strComment = trim($this->Input->post('gbmessage', true));
         // Replace bbcode
-        if ($this->gb_bbcode)
-        {
+        if ($this->gb_bbcode) {
             $arrSearch = array (
-            '[b]', '[/b]',
-            '[i]', '[/i]',
-            '[u]', '[/u]',
-            '[code]', '[/code]',
-            '[/color]',
-            '[quote]', '[/quote]',
-            ':grin',
-             ':)',
-             ':-)',
-             ':p',
-             ';)',
-             ';-)',
-             ':(',
-             ':cry',
-             ':eek',
-             ':o)',
-             '8)',
-             ':?',
-             ':x',
-             ':roll',
-             ':zzz',
-             ':sigh',
-             ':upset'
+                '[b]', '[/b]',
+                '[i]', '[/i]',
+                '[u]', '[/u]',
+                '[code]', '[/code]',
+                '[/color]',
+                '[quote]', '[/quote]',
+                ':grin',
+                ':)',
+                ':-)',
+                ':p',
+                ';)',
+                ';-)',
+                ':(',
+                ':cry',
+                ':eek',
+                ':o)',
+                '8)',
+                ':?',
+                ':x',
+                ':roll',
+                ':zzz',
+                ':sigh',
+                ':upset'
             );
             $arrReplace = array (
-            '<strong>', '</strong>',
-            '<em>', '</em>',
-            '<span style="text-decoration:underline;">', '</span>',
-            '<div class="code"><p>' . $GLOBALS['TL_LANG']['MSC']['com_code'] . '</p><pre>', '</pre></div>',
-            '</span>',
-            '<div class="quote">', '</div>',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-laughing.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-wink.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-wink.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-frown.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cry.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cool.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-embarassed.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_dead.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_rolleyes.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sleep.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sigh.gif">',
-            '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_upset.gif">'
+                '<strong>', '</strong>',
+                '<em>', '</em>',
+                '<span style="text-decoration:underline;">', '</span>',
+                '<div class="code"><p>' . $GLOBALS['TL_LANG']['MSC']['com_code'] . '</p><pre>', '</pre></div>',
+                '</span>',
+                '<div class="quote">', '</div>',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-laughing.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-wink.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-wink.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-frown.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cry.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cool.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-embarassed.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_dead.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_rolleyes.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sleep.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sigh.gif">',
+                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_upset.gif">'
             );
             $strComment = str_replace($arrSearch, $arrReplace, $strComment);
             $strComment = preg_replace('/\[color=([^\]]+)\]/i', '<span style="color:$1;">', $strComment);
@@ -266,16 +234,13 @@ class GuestBookForm extends Module {
             $strComment = preg_replace(array('@</div>(\n)*@', '@\r@'), array("</div>\n", ''), $strComment);
         }
         // Encode e-mail addresses
-        if (strpos($strComment, 'mailto:') !== false)
-        {
-            $this->import('StringUtil');
-            $strComment = $this->StringUtil->encodeEmail($strComment);
+        if (strpos($strComment, 'mailto:') !== false) {
+            $strComment = StringUtil::encodeEmail($strComment);
         }
         // Prevent cross-site request forgeries
         $strComment = preg_replace('/(href|src|on[a-z]+)="[^"]*(typolight\/main\.php|javascript|vbscri?pt|script|alert|document|cookie|window)[^"]*"+/i', '$1="#"', $strComment);
         // Prepare record
-        $arrSet = array
-        (
+        $arrSet = array (
             'tstamp' => time(),
             'name' => $this->Input->post('gbname'),
             'email' => $this->Input->post('gbemail', true),
@@ -288,12 +253,10 @@ class GuestBookForm extends Module {
         );
         $arrSet['place'] = $this->Input->post('gbplace');
         // Moderate
-        if ($this->gb_moderate)
-        {
+        if ($this->gb_moderate) {
             $arrSet['published'] = '';
         }
-        if (!$this->gb_disableURL)
-        {
+        if (!$this->gb_disableURL) {
             $arrSet['website'] = $strWebsite;
         }
 
@@ -321,16 +284,10 @@ class GuestBookForm extends Module {
 
         $objEmail->sendTo($GLOBALS['TL_ADMIN_EMAIL']);
 
-
-
         // Redirect
-        if (strlen($this->gb_jumpTo))
-        {
-            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")
-            ->limit(1)
-            ->execute($this->gb_jumpTo);
-            if ($objNextPage->numRows)
-            {
+        if (mb_strlen($this->gb_jumpTo)) {
+            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
+            if ($objNextPage->numRows) {
                 $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
             }
         }
