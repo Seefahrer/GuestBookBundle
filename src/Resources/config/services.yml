@@ -7,3 +7,5 @@ services:
         autowire: true
         autoconfigure: true
         public: true
+        arguments:
+            - '@contao.routing.scope_matcher'
