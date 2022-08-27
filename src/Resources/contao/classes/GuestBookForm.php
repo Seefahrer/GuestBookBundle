@@ -24,8 +24,10 @@ class GuestBookForm extends Module
     * @return string
     */
     public function generate()
+
+
     {
-        if (Services::scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest()))
+        if (TL_MODE == 'BE')
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
