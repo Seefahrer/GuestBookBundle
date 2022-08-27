@@ -14,7 +14,7 @@ class GuestBookForm extends Module
 
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK FORM ###';
