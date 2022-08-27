@@ -272,7 +272,7 @@ class GuestBookForm extends Module {
 
         // Convert the comment to plain text
         $strComment = strip_tags($strComment);
-        $strComment = $this->StringUtil->decodeEntities($strComment);
+        $strComment = StringUtil::decodeEntities($strComment);
         $strComment = str_replace(array('&', '<', '>'), array('&', '<', '>'), $strComment);
 
         // Add comment details
