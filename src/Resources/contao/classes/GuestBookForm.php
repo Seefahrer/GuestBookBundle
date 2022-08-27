@@ -13,15 +13,9 @@ use Contao\CoreBundle\Routing\ScopeMatcher;
 
 class GuestBookForm extends Module 
 {
-   /**
-    * Template
-    * @var string
-    */
+   
     protected $strTemplate = 'mod_guestbookform';
-    /**
-    * Display a wildcard in the back end
-    * @return string
-    */
+   
     public function generate()
     {
         if (TL_MODE == 'BE')
