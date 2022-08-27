@@ -6,14 +6,14 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Seefahrer\GuestBookBundle\GuestBookForm;
+namespace Seefahrer\GuestBookBundle;
 
 use Contao\CoreBundle\Exception\PageNotFoundException;
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 
-class GuestBookForm extends Module 
+class GuestBookForm extends Module
 {
    
     protected $strTemplate = 'mod_guestbookform';

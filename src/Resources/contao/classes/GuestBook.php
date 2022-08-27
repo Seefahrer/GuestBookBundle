@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Seefahrer\GuestBookBundle\GuestBook;
+namespace Seefahrer\GuestBookBundle;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
 
