@@ -10,7 +10,6 @@ namespace Contao;
 
 use Contao\CoreBundle\Exception\PageNotFoundException;
 use Contao\CoreBundle\Routing\ScopeMatcher;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class GuestBookForm extends Module 
 {

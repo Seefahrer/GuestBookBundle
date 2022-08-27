@@ -9,16 +9,23 @@
 // namespace Seefahrer\GuestBookBundle;
 
 use Contao\CoreBundle\Routing\ScopeMatcher;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class GuestBook extends Module
 {
     /** * Template * @var string */
     protected $strTemplate = 'mod_guestbook';
     /** * Display a wildcard in the back end * @return string */
+   
+    private $scopeMatcher; 
+
+    public function __construct(ScopeMatcher $scopeMatcher) 
+    { 
+        $this->scopeMatcher = $scopeMatcher; 
+    } 
+
     public function generate()
     {
-        if (TL_MODE == 'BE')
+        if ($this->scopeMatcher->isBackendRequest())
         {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK ENTRIES ###';
