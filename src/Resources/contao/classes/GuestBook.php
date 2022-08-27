@@ -6,9 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Seefahrer\GuestBookBundle;
-
-use Contao\CoreBundle\Routing\ScopeMatcher;
+namespace Seefahrer\GuestBookBundle\GuestBook;
 
 class GuestBook extends Module
 {

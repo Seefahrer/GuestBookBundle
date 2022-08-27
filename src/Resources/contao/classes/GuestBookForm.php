@@ -8,8 +8,6 @@
 
 namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
-use Contao\CoreBundle\Exception\PageNotFoundException;
-
 class GuestBookForm extends Module
 {   
     protected $strTemplate = 'mod_guestbookform';
