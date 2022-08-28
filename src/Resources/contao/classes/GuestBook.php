@@ -9,7 +9,7 @@
 //namespace Seefahrer\GuestBookBundle\GuestBook;
 
 class GuestBook extends Module {
-
+    
     /** * Template * @var string */
     protected $strTemplate = 'mod_guestbook';
     /** * Display a wildcard in the back end * @return string */
@@ -38,13 +38,13 @@ class GuestBook extends Module {
             $limit = $this->gb_perPage;
             $offset = ($page - 1) * $this->gb_perPage;
             // Get total number of comments
-            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!BE_USER_LOGGED_IN ? " WHERE published=1" : "")) ->execute($this->id);
+            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "")) ->execute($this->id);
             // Add pagination menu
             $objPagination = new Pagination($objTotal->count, $this->gb_perPage);
             $this->Template->pagination = $objPagination->generate("\n ");
         }
         // Get all published comments
-        $gbEntriesStmt = $this->Database->prepare("SELECT * FROM tl_guestbook" . (!BE_USER_LOGGED_IN ? " WHERE published=1" : "") . " ORDER BY date" . (($this->gb_order == 'descending') ? " DESC" : ""));
+        $gbEntriesStmt = $this->Database->prepare("SELECT * FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "") . " ORDER BY date" . (($this->gb_order == 'descending') ? " DESC" : ""));
         if ($limit) {
             $gbEntriesStmt->limit($limit, $offset);
         }
