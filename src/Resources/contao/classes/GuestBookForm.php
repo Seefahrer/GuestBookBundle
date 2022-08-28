@@ -249,7 +249,7 @@ class GuestBookForm extends Module {
             'message' => nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
-            'published' => ''
+            'published' => 1
         );
         $arrSet['place'] = $this->Input->post('gbplace');
         // Moderate
