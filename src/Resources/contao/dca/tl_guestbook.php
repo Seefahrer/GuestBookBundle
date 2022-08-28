@@ -6,19 +6,15 @@
  * @license LGPL-3.0-or-later
  */
 
-$GLOBALS['TL_DCA']['tl_guestbook'] = array
-(
+$GLOBALS['TL_DCA']['tl_guestbook'] = array (
     // Config
-    'config' => array
-    (
+    'config' => array (
         'dataContainer'                   => 'Table',
         'doNotCopyRecords'                => true,
         'enableVersioning'                => false,
         'closed'                          => true,
-        'sql' => array
-		(
-			'keys' => array
-			(
+        'sql' => array (
+			'keys' => array (
 				'id' => 'primary',
 				'published' => 'index'
 			)
@@ -26,55 +22,45 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
     ),
     
     // List
-    'list' => array
-    (
-        'sorting' => array
-        (
+    'list' => array (
+        'sorting' => array (
             'mode'                    => 1,
             'fields'                  => array('date'),
             'flag'                    => 6,
             'panelLayout'             => 'filter;search,limit'
         ),
-        'label' => array
-        (
+        'label' => array (
             'fields'                  => array('name'),
             'format'                  => '%s',
             'label_callback'          => array('tl_guestbook', 'listGbEntries')
         ),
-        'global_operations' => array
-        (
-            'all' => array
-            (
+        'global_operations' => array (
+            'all' => array (
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
                 'attributes'          => 'onclick="Backend.getScrollOffset();"'
             )
         ),
-        'operations' => array
-        (
-            'edit' => array
-            (
+        'operations' => array (
+            'edit' => array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['edit'],
                 'href'                => 'act=edit',
                 'icon'                => 'edit.gif'
             ),
-            'delete' => array
-            (
+            'delete' => array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
             ),
-            'toggle' => array
-            (
+            'toggle' => array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['toggle'],
                 'icon'                => 'invisible.gif',
                 'attributes'          => 'onclick="Backend.getScrollOffset(); return; AjaxRequest.toggleVisibility(this, %s);"',
                 'button_callback'     => array('tl_guestbook', 'toggleIcon')
             ),
-            'show' => array
-            (
+            'show' => array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
@@ -83,27 +69,22 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
     ),
     
     // Palettes
-    'palettes' => array
-    (
+    'palettes' => array (
         '__selector__'                => array('redirect'),
         'default'                     => '{author_legend},name,email,place,website;{message_legend},titel,message;{date_legend:hide},tstamp,date;{comment_legend:hide},comment;{published_legend},published',
     ),
 
     // Subpalettes
-	'subpalettes' => array
-	(
+	'subpalettes' => array (
 		'addComment'                    => 'author,comment'
     ),
     
     // Fields
-    'fields' => array
-    (
-        'id' => array
-		(
+    'fields' => array (
+        'id' => array (
 			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
 		),
-        'name' => array
-        (
+        'name' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['name'],
             'exclude'                 => true,
             'search'                  => true,
@@ -111,16 +92,14 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>128,'tl_class'=>'w50'),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
-        'email' => array
-        (
+        'email' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['email'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>128, 'rgxp'=>'email', 'decodeEntities'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
-        'place' => array
-        (
+        'place' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['place'],
             'exclude'                 => true,
             'search'                  => true,
@@ -128,8 +107,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
-        'website' => array
-        (
+        'website' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['website'],
             'exclude'                 => true,
             'search'                  => true,
@@ -137,32 +115,28 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
             'eval'                    => array('maxlength'=>128, 'rgxp'=>'url', 'decodeEntities'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
-        'titel' => array
-        (
+        'titel' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['titel'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true,'maxlength'=>128),
             'sql'                     => "varchar(128) NOT NULL default ''"
         ),
-        'message' => array
-        (
+        'message' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['message'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
             'eval'                    => array('rte'=>'tinyMCE'),
             'sql'                     => "text NULL"
         ),
-        'comment' => array
-        (
+        'comment' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['comment'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
             'eval'                    => array('rte'=>'tinyMCE'),
             'sql'                     => "text NULL"
         ),
-		'date' => array
-		(
+		'date' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['date'],
 			'default'                 => time(),
 			'exclude'                 => true,
@@ -172,8 +146,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
 			'eval'                    => array('rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'w50 wizard'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		'tstamp' => array
-		(
+		'tstamp' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['tstamp'],
 			'default'                 => time(),
 			'exclude'                 => true,
@@ -183,8 +156,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
 			'eval'                    => array('rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'w50 wizard'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-        'published' => array
-        (
+        'published' => array (
             'label'                   => &$GLOBALS['TL_LANG']['tl_guestbook']['published'],
             'exclude'                 => true,
             'filter'                  => true,
@@ -194,19 +166,15 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array
         )
     )
 );
-class tl_guestbook extends Backend
-{
+class tl_guestbook extends Backend {
     // Database result 
     protected $arrData = null;
     
     // List Guestbook entries
-    public function listGbEntries($arrRow)
-    {
-        if (is_null($this->arrData))
-        {
+    public function listGbEntries($arrRow) {
+        if (is_null($this->arrData)) {
             $objData = $this->Database->execute("SELECT id, name FROM tl_guestbook");
-            while ($objData->next())
-            {
+            while ($objData->next()) {
                 $this->arrData[$objData->id] = $objData->name;
             }
         }
@@ -220,10 +188,8 @@ class tl_guestbook extends Backend
     }
     
     // Toggle published icon
-    public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
-    {
-        if (strlen($this->Input->get('id')))
-        {
+    public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
+        if (mb_strlen($this->Input->get('id'))) {
             $this->toggleVisibility($this->Input->get('id'), ($this->Input->get('state') == 1));
             $this->redirect($this->getReferer());
         }
@@ -232,11 +198,9 @@ class tl_guestbook extends Backend
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ';
     }
    // Toggle publsihed on Database
-    public function toggleVisibility($intId, $blnVisible)
-    {
+    public function toggleVisibility($intId, $blnVisible) {
         // Update database
         $this->Database->prepare("UPDATE tl_guestbook SET published='" . ($blnVisible ? '' : 1) . "' WHERE id=?")
         ->execute($intId);
     }
 }
-?>

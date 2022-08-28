@@ -6,6 +6,7 @@
 * @license LGPL-3.0-or-later
 */
  
+// Front end styles
 $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 
 // Front end modules
