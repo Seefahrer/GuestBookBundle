@@ -13,8 +13,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},na
 $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbooklist'] = '{title_legend},name,headline,type;{config_legend},gb_order,gb_perPage,gb_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 // Add fields to tl_module
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_order'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_order'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_order'],
     'default'                 => 'ascending',
     'exclude'                 => true,
@@ -24,72 +23,63 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['gb_order'] = array
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "varchar(32) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_perPage'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_perPage'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_perPage'],
     'exclude'                 => true,
     'inputType'               => 'text',
     'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50'),
     'sql'                     => "smallint(5) unsigned NOT NULL default '0'"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_jumpTo'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_jumpTo'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_jumpTo'],
     'exclude'                 => true,
     'inputType'               => 'pageTree',
     'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
     'sql'                     => "varchar(32) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_moderate'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_moderate'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_moderate'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_bbcode'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_bbcode'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_bbcode'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableCaptcha'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableCaptcha'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableCaptcha'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableDSGVO'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableDSGVO'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableDSGVO'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_DSGVOpagelink'] = array 
-( 
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_DSGVOpagelink'] = array ( 
     'label' => &$GLOBALS['TL_LANG']['tl_module']['gb_DSGVOpagelink'], 
     'exclude'                 => true,
     'inputType'               => 'pageTree',
     'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
     'sql' => "varchar(255) NOT NULL default ''" 
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableURL'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_disableURL'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_disableURL'],
     'exclude'                 => true,
     'inputType'               => 'checkbox',
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "char(1) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['gb_template'] = array
-(
+$GLOBALS['TL_DCA']['tl_module']['fields']['gb_template'] = array (
     'label'                   => &$GLOBALS['TL_LANG']['tl_module']['gb_template'],
     'default'                 => 'gb_default',
     'exclude'                 => true,
@@ -98,4 +88,3 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['gb_template'] = array
     'eval'                    => array('tl_class'=>'w50'),
     'sql'                     => "varchar(32) NOT NULL default ''"
 );
-?>
