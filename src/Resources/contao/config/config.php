@@ -10,7 +10,18 @@
 use Contao\CoreBundle\Routing\ScopeMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-if (System::getContainer()->get('contao.routing.scope_matcher')->isFrontendRequest(System::getContainer()->get('request_stack')->getCurrentRequest())) {
+private ScopeMatcher $scopeMatcher;
+private RequestStack $requestStack;
+
+public function __construct(ScopeMatcher $scopeMatcher, RequestStack $requestStack)
+{
+    $this->scopeMatcher = $scopeMatcher;
+    $this->requestStack = $requestStack;
+}
+
+$request = $this->requestStack->getCurrentRequest();
+
+if ($this->scopeMatcher->isFrontendRequest($request)) {
     $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 }
 

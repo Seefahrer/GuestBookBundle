@@ -1,14 +1,17 @@
 <?php
 
 /*
- * Contao CMS (c) Leo Feyer
- *
- * @license LGPL-3.0-or-later
- */
+* Contao CMS (c) Leo Feyer
+*
+* @license LGPL-3.0-or-later
+*/
+
+use Contao\StringUtil;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
 class GuestBookForm extends Module {   
+    
     protected $strTemplate = 'mod_guestbookform';
 
     public function generate() {
