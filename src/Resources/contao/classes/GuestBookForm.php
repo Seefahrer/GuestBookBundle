@@ -158,7 +158,6 @@ class GuestBookForm extends Module {
     * - [u][/u] underline
     * - [img][/img]
     * - [code][/code]
-    * - [color=#ff0000][/color]
     * - [quote][/quote]
     * - [quote=tim][/quote]
     * - [url][/url]
@@ -181,7 +180,6 @@ class GuestBookForm extends Module {
                 '[i]', '[/i]',
                 '[u]', '[/u]',
                 '[code]', '[/code]',
-                '[/color]',
                 '[quote]', '[/quote]',
                 ':grin',
                 ':)',
@@ -206,7 +204,6 @@ class GuestBookForm extends Module {
                 '<em>', '</em>',
                 '<span style="text-decoration:underline;">', '</span>',
                 '<div class="code"><p>' . $GLOBALS['TL_LANG']['MSC']['com_code'] . '</p><pre>', '</pre></div>',
-                '</span>',
                 '<div class="quote">', '</div>',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-smile.gif">',
@@ -252,7 +249,7 @@ class GuestBookForm extends Module {
             'message' => nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
-            'published' => 1
+            'published' => ''
         );
         $arrSet['place'] = $this->Input->post('gbplace');
         // Moderate
