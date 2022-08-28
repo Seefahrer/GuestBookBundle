@@ -291,6 +291,6 @@ class GuestBookForm extends Module {
                 $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
             }
         }
-        $this->jumpToOrReload($this->jumpTo);
+        $this->jumpToOrReload($this->gb_jumpTo);
     }
 }
