@@ -7,7 +7,6 @@
 */
 
 use Contao\StringUtil;
-use Contao\PageModel;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
