@@ -7,6 +7,7 @@
 */
 
 use Contao\StringUtil;
+use Contao\PageModel;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
@@ -286,14 +287,14 @@ class GuestBookForm extends Module {
 
         // Redirect
         if (strlen($this->gb_jumpTo)) {
-            echo $this->gb_jumpTo;
             $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")
             ->limit(1)
             ->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
-                $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
+                $this->redirect($this->PageModel::getFrontendUrl($objNextPage->fetchAssoc()));
             }
+            $this->jumpToOrReload($this->jumpTo);
         }
-        $this->jumpToOrReload($this->jumpTo);
+        $this->reload();
     }
 }
