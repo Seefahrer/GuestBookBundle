@@ -287,9 +287,9 @@ class GuestBookForm extends Module {
 
         // Redirect
        if (strlen($this->gb_jumpTo)) {
-            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=? LIMIT 1")->execute($this->gb_jumpTo);
+            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
-                $this->redirect(getFrontendUrl($objNextPage->fetchAssoc()));
+                $this->redirect(PageModel::getFrontendUrl($objNextPage->fetchAssoc()));
             }
             $this->reload();
         }   
