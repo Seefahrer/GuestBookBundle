@@ -286,13 +286,12 @@ class GuestBookForm extends Module {
         $objEmail->sendTo($GLOBALS['TL_ADMIN_EMAIL']);
 
         // Redirect
-        if (strlen($this->gb_jumpTo)) {
+       if (strlen($this->gb_jumpTo)) {
             $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=? LIMIT 1")->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
-                $this->redirect($this->getFrontendUrl($objNextPage->fetchAssoc()));
+                $this->redirect(getFrontendUrl($objNextPage->fetchAssoc()));
             }
-            $this->jumpToOrReload($this->jumpTo);
-        }
-        $this->reload();
+            $this->reload();
+        }   
     }
 }
