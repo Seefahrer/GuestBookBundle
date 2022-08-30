@@ -289,9 +289,9 @@ class GuestBookForm extends Module {
         {
             $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
-                $this->jumpToOrReload($this->$objNextPage->fetchAssoc());
+                $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
             }
         }
-       // $this->jumpToOrReload($this->jumpTo);
+        $this->jumpToOrReload($this->jumpTo);
     }
 }
