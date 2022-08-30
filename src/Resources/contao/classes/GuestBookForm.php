@@ -285,6 +285,8 @@ class GuestBookForm extends Module {
         $objEmail->sendTo($GLOBALS['TL_ADMIN_EMAIL']);
 
         // Redirect if there is a jumTo page
-        if (strlen($this->gb_jumpTo) ? $this->jumpToOrReload($this->gb_jumpTo) : $this->reload());
+        if ($this->gb_jumpTo) {
+            $this->jumpToOrReload($this->gb_jumpTo);
+        }
     }
 }
