@@ -290,7 +290,16 @@ class GuestBookForm extends Module {
            /* $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
                 $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
-            } */
+            }
+            
+        // Get the target URL
+            if ($this->method == 'GET' && ($objTarget = $this->objModel->getRelated('jumpTo')) instanceof PageModel)
+            {
+                /** @var PageModel $objTarget */
+                $this->Template->action = $objTarget->getFrontendUrl();
+            }
+            
+            */
             $this->jumpToOrReload($this->gb_jumpTo);
         }
         // $this->jumpToOrReload($this->jumpTo);
