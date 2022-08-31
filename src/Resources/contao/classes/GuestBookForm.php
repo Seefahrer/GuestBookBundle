@@ -287,15 +287,10 @@ class GuestBookForm extends Module {
         // Redirect if there is a jumTo page
         if ($this->gb_jumpTo)
         {
-           /* $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
+            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
-                $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
-            } */
-            
-        // Get the target URL
-            if ($objTarget = $this->objModel->getRelated('gb_jumpTo')) {
-                /** @var PageModel $objTarget */
-                $this->redirect($objTarget->getFrontendUrl());
+                $params = $this->$objNextPage->fetchAssoc();
+                $this->redirect($this->getFrontendUrl($params));
             }
             // $this->jumpToOrReload($this->gb_jumpTo);
         }
