@@ -293,7 +293,7 @@ class GuestBookForm extends Module {
             } */
             
         // Get the target URL
-            if ($objTarget = $this->objModel->getRelated('jumpTo')) {
+            if ($objTarget = $this->objModel->getRelated('gb_jumpTo')) {
                 /** @var PageModel $objTarget */
                 $this->redirect($objTarget->getFrontendUrl());
             }
