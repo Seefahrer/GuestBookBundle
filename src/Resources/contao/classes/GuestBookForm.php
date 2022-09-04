@@ -285,14 +285,13 @@ class GuestBookForm extends Module {
         $objEmail->sendTo($GLOBALS['TL_ADMIN_EMAIL']);
 
         // Redirect if there is a jumpTo page
-        if ($this->gb_jumpTo)
-        {
-            $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
+        if ($this->gb_jumpTo) {
+            /* $objNextPage = $this->Database->prepare("SELECT id, alias FROM tl_page WHERE id=?")->limit(1)->execute($this->gb_jumpTo);
             if ($objNextPage->numRows) {
                 $params = $this->$objNextPage->fetchAssoc()['alias'];
                 $this->redirect($this->getFrontendUrl($params));
-            }
-            // $this->jumpToOrReload($this->gb_jumpTo);
+            } */
+            $this->jumpToOrReload($this->gb_jumpTo);
         }
     }
 }
