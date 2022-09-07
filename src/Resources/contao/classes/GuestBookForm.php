@@ -290,7 +290,11 @@ class GuestBookForm extends Module {
             if ($objNextPage->numRows) {
                 $params = $this->$objNextPage->fetchAssoc()['alias'];
                 $this->redirect($this->getFrontendUrl($params));
-            } */
+            } 
+            if ($objNextPage->numRows)
+            {
+                $this->redirect($this->generateFrontendUrl($objNextPage->fetchAssoc()));
+            }*/
             $this->jumpToOrReload($this->gb_jumpTo);
         }
     }
