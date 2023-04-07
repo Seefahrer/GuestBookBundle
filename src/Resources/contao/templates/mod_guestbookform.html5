@@ -69,8 +69,7 @@
       <div class="submit_container">
         <button type="submit" value="" class="submit -quaternary"><?php echo $this->submit; ?>
         </button>
-      </div>
-            
+      </div>     
     </div>
 	</form>
 
