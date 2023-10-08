@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array (
                 'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'                => 'act=select',
                 'class'               => 'header_edit_all',
-                'attributes'          => 'onclick="Backend.getScrollOffset();"'
+                'attributes'          => 'onclick="System::Backend.getScrollOffset();"'
             )
         ),
         'operations' => array (
@@ -55,12 +55,12 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
-                'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
+                'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; System::Backend.getScrollOffset();"'
             ),
             'toggle' => array (
                 'label'               => &$GLOBALS['TL_LANG']['tl_guestbook']['toggle'],
                 'icon'                => 'invisible.gif',
-                'attributes'          => 'onclick="Backend.getScrollOffset(); return; AjaxRequest.toggleVisibility(this, %s);"',
+                'attributes'          => 'onclick="System::Backend.getScrollOffset(); return; AjaxRequest.toggleVisibility(this, %s);"',
                 'button_callback'     => array('tl_guestbook', 'toggleIcon')
             ),
             'show' => array (
