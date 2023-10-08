@@ -12,7 +12,7 @@ use Contao\ArrayUtil;
 $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 
 // Front end modules
-ArrayUtil::array_insert($GLOBALS['FE_MOD'], 1, array (
+\array_insert($GLOBALS['FE_MOD'], 1, array (
     'guestbook' => array (
         'guestbooklist' => 'GuestBook',
         'guestbookform' => 'GuestBookForm'
@@ -20,7 +20,7 @@ ArrayUtil::array_insert($GLOBALS['FE_MOD'], 1, array (
 ));
 
 // Back end modules
-ArrayUtil::array_insert($GLOBALS['BE_MOD']['content'], 2, array (
+\array_insert($GLOBALS['BE_MOD']['content'], 2, array (
     'guestbook' => array (
         'tables' => array('tl_guestbook'),
         'icon'   => 'bundles/seefahrerguestbook/icon.png',
