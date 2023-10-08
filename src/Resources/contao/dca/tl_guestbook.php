@@ -6,6 +6,9 @@
  * @license LGPL-3.0-or-later
  */
 
+use Contao\DataContainer;
+use Contao\DC_Table;
+
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
     'config' => array (
