@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=8.1",
         "contao/core-bundle":"^4.13 || ^5.0"
     },
     "conflict": {
