@@ -5,7 +5,9 @@
 *
 * @license LGPL-3.0-or-later
 */
- 
+
+use Contao\ArrayUtil;
+
 // Front end styles
 $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 
