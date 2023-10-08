@@ -6,6 +6,8 @@
  * @license LGPL-3.0-or-later
  */
 
+use Contao\System;
+
 System::loadLanguageFile('tl_content');
 
 // Add palettes to tl_module

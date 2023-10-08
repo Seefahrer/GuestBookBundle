@@ -8,6 +8,8 @@
 
 //namespace Seefahrer\GuestBookBundle\GuestBook;
 
+use Contao\System;
+
 class GuestBook extends Module {
     
     /** * Template * @var string */
