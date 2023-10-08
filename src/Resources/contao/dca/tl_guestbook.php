@@ -6,10 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-use Contao\System;
-use Contao\DC_Table;
-
-$GLOBALS['TL_DCA']['tl_guestbook'] = array (
+$GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
     'config' => array (
         'dataContainer'                   => 'Table',
@@ -168,7 +165,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] = array (
             'sql'                     => "char(1) NOT NULL default ''"
         )
     )
-);
+];
 class tl_guestbook extends Backend {
     // Database result 
     protected $arrData = null;
