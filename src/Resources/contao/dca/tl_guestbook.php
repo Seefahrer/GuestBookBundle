@@ -8,6 +8,7 @@
 
 use Contao\Backend;
 use Contao\DC_Table;
+use League\Uri\Idna;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
