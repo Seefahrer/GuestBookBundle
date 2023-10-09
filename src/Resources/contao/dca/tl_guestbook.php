@@ -9,6 +9,7 @@
 use Contao\Backend;
 use Contao\DC_Table;
 use Contao\Idna;
+use Contao\StringUtil;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
