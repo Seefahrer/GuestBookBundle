@@ -7,18 +7,19 @@
  */
 
 use Contao\Backend;
+use Contao\Config;
+use Contao\DataContainer;
+use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
 use Contao\StringUtil;
-use Contao\Date;
-use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
     'config' => array (
         'dataContainer'                   => DC_Table::class,
-        'doNotCopyRecords'                => true,
-        'enableVersioning'                => false,
+        'notCopyable'                     => true,
+        'enableVersioning'                => true,
         'closed'                          => true,
         'sql' => array (
 			'keys' => array (
@@ -31,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // List
     'list' => array (
         'sorting' => array (
-            'mode'                    => 1,
+            'mode'                    => DataContainer::MODE_SORTABLE,
             'fields'                  => array('date'),
             'flag'                    => 6,
             'panelLayout'             => 'filter;search,limit'
