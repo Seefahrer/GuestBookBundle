@@ -7,11 +7,12 @@
  */
 
 use Contao\Backend;
+use Contao\DC_Table;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
     'config' => array (
-        'dataContainer'                   => 'Table',
+        'dataContainer'                   => DC_Table::class,
         'doNotCopyRecords'                => true,
         'enableVersioning'                => false,
         'closed'                          => true,
