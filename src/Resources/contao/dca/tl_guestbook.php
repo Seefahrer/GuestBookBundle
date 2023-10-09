@@ -7,28 +7,12 @@
  */
 
 use Contao\Backend;
-use Contao\BackendUser;
-use Contao\CalendarBundle\Security\ContaoCalendarPermissions;
-use Contao\Comments;
-use Contao\CommentsModel;
-use Contao\CommentsNotifyModel;
-use Contao\Config;
-use Contao\Controller;
-use Contao\CoreBundle\EventListener\Widget\HttpUrlListener;
-use Contao\CoreBundle\Exception\AccessDeniedException;
-use Contao\CoreBundle\Security\ContaoCorePermissions;
-use Contao\Database;
-use Contao\DataContainer;
-use Contao\Date;
 use Contao\DC_Table;
-use Contao\Email;
-use Contao\Environment;
 use Contao\Idna;
-use Contao\Image;
-use Contao\Input;
-use Contao\NewsBundle\Security\ContaoNewsPermissions;
 use Contao\StringUtil;
-use Contao\System;
+use Contao\Date;
+use Contao\DataContainer;
+use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
