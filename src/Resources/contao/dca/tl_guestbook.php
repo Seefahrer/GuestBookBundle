@@ -8,7 +8,21 @@
 
 use Contao\Backend;
 use Contao\DC_Table;
-use Idna;
+use Contao\CoreBundle\Exception\AccessDeniedException;
+use Contao\CoreBundle\Exception\NotFoundException;
+use Contao\CoreBundle\Exception\ResponseException;
+use Contao\CoreBundle\Picker\PickerInterface;
+use Contao\CoreBundle\Security\ContaoCorePermissions;
+use Contao\CoreBundle\Security\DataContainer\CreateAction;
+use Contao\CoreBundle\Security\DataContainer\DeleteAction;
+use Contao\CoreBundle\Security\DataContainer\ReadAction;
+use Contao\CoreBundle\Security\DataContainer\UpdateAction;
+use Doctrine\DBAL\Exception\DriverException;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\String\UnicodeString;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
