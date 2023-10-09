@@ -34,7 +34,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] =  [
         'sorting' => array (
             'mode'                    => DataContainer::MODE_SORTABLE,
             'fields'                  => array('date'),
-            'flag'                    => 6,
+
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array (
