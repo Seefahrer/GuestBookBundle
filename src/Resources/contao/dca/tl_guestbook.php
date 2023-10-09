@@ -11,6 +11,7 @@ use Contao\DC_Table;
 use Contao\Idna;
 use Contao\StringUtil;
 use Contao\Date;
+use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
