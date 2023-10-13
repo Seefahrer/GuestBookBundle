@@ -151,7 +151,7 @@ $GLOBALS['TL_DCA']['tl_guestbook'] =  [
 			'filter'                  => true,
 			'flag'                    => 8,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'date', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+			'eval'                    => array('rgxp'=>'dateim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		'tstamp' => array (
