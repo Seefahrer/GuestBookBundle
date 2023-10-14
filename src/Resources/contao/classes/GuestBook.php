@@ -9,6 +9,7 @@
 //namespace Seefahrer\GuestBookBundle\GuestBook;
 
 use Contao\System;
+use Contao\Date;
 
 class GuestBook extends Module {
     
@@ -64,8 +65,8 @@ class GuestBook extends Module {
                 $objTemplate->titel = trim($gbEntries->titel);
                 $objTemplate->message = trim($gbEntries->message);
                 $objTemplate->comment = trim($gbEntries->comment);
-                $objTemplate->datim = $this->parseDate($GLOBALS['TL_CONFIG']['datimFormat'], $gbEntries->tstamp);
-                $objTemplate->date = $this->parseDate("d. M Y", $gbEntries->date);
+                $objTemplate->datim = Date::parse($GLOBALS['TL_CONFIG']['datimFormat'], $gbEntries->tstamp);
+                $objTemplate->date = Date::parse("d. M Y", $gbEntries->date);
                 $objTemplate->class = (($count < 1) ? ' first' : '') . (($count >= ($total - 1)) ? ' last' : '') . (($count % 2 == 0) ? ' even' : ' odd');
                 $objTemplate->id = 'c' . $gbEntries->id;
                 $objTemplate->timestamp = $gbEntries->date;
