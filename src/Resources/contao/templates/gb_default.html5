@@ -1,7 +1,7 @@
 <!-- indexer::stop -->
 <div class="gb-entry <?php echo $this->class; ?>" id="<?php echo $this->id; ?>">
 
-
+<span class="entry_date"><?php echo $this->date; ?></span>		
 <div class="author_entry"><h3 class="author-name"><?php echo $this->name ?> - <?php echo $this->place; ?> </h3>
 
 <div class="entry-titel"> <h3> <?php echo $this->titel; ?></h3></div>
