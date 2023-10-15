@@ -199,11 +199,7 @@ class tl_guestbook extends Backend {
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
 		
-        // Check permissions AFTER checking the tid, so hacking attempts are logged
-		if (!System::getContainer()->get('security.helper')->isGranted(ContaoCorePermissions::USER_CAN_EDIT_FIELD_OF_TABLE, 'tl_guestbook::published'))
-		{
-			return '';
-		}
+        
 
 		$href .= '&amp;id=' . $row['id'];
 
