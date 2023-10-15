@@ -7,13 +7,12 @@
  */
 
 use Contao\Backend;
-use Contao\Config;
-use Contao\CoreBundle\Security\ContaoCorePermissions;
-use Contao\DataContainer;
-use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
 use Contao\StringUtil;
+use Contao\Date;
+use Contao\DataContainer;
+use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
@@ -198,25 +197,14 @@ class tl_guestbook extends Backend {
     
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
-		
-        
-
-		$href .= '&amp;id=' . $row['id'];
-
-		if (!$row['published'])
-		{
-			$icon = 'invisible.svg';
-		}
-
-		if (!$this->isAllowedToEditComment($row['parent'], $row['source']))
-		{
-			return Image::getHtml($icon) . ' ';
-		}
-
-		$titleDisabled = (is_array($GLOBALS['TL_DCA']['tl_guestbook']['list']['operations']['toggle']['label']) && isset($GLOBALS['TL_DCA']['tl_guestbook']['list']['operations']['toggle']['label'][2])) ? sprintf($GLOBALS['TL_DCA']['tl_guestbook']['list']['operations']['toggle']['label'][2], $row['id']) : $title;
-
-		return '<a href="' . $this->addToUrl($href) . '" title="' . StringUtil::specialchars($row['published'] ? $title : $titleDisabled) . '" data-title="' . StringUtil::specialchars($title) . '" data-title-disabled="' . StringUtil::specialchars($titleDisabled) . '" onclick="Backend.getScrollOffset();return AjaxRequest.toggleField(this,true)">' . Image::getHtml($icon, $label, 'data-icon="visible.svg" data-icon-disabled="invisible.svg" data-state="' . ($row['published'] ? 1 : 0) . '"') . '</a> ';
-	}
+        if (strlen($this->Input->get('id'))) {
+            $this->toggleVisibility($this->Input->get('id'), ($this->Input->get('state') == 1));
+            $this->redirect($this->getReferer());
+        }
+        $href .= '&id='.$row['id'].'&state='.$row['published'];
+        if ($row['published']) { $icon = 'visible.gif'; }
+        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ';
+    }
    // Toggle publsihed on Database
     public function toggleVisibility($intId, $blnVisible) {
         // Update database
