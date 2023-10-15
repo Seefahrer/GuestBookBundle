@@ -197,7 +197,7 @@ class tl_guestbook extends Backend {
     
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
-        if (strlen($this->Input->get('id'))) {
+        if ($this->Input->get('id')) {
             $this->toggleVisibility($this->Input->get('id'), ($this->Input->get('state') == 1));
             $this->redirect($this->getReferer());
         }
@@ -205,7 +205,7 @@ class tl_guestbook extends Backend {
         if ($row['published']) { $icon = 'visible.gif'; }
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ';
     }
-    
+
    // Toggle published on Database
     public function toggleVisibility($intId, $blnVisible) {
         // Update database
