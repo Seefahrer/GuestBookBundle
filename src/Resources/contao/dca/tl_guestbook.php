@@ -205,7 +205,8 @@ class tl_guestbook extends Backend {
         if ($row['published']) { $icon = 'visible.gif'; }
         return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ';
     }
-   // Toggle publsihed on Database
+    
+   // Toggle published on Database
     public function toggleVisibility($intId, $blnVisible) {
         // Update database
         $this->Database->prepare("UPDATE tl_guestbook SET published='" . ($blnVisible ? '' : 1) . "' WHERE id=?")
