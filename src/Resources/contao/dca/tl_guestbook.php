@@ -191,7 +191,7 @@ class tl_guestbook extends Backend {
         // Backend Output
         return '
         <div class="guestbook_wrap">
-        <div class="cte_type ' . $key . '"><strong><a href="mailto:' . Idna::decodeEmail($arrRow['email']) . '" title="' . StringUtil::specialchars(Idna::decodeEmail($arrRow['email'])) . '">' . $arrRow['name'] . '</a></strong> - ' . Date::parse(Config::get('datimFormat'), $arrRow['date']) . '<br>' . $title . '</div>
+        <div class="cte_type ' . $key . '"><strong><a href="mailto:' . Idna::decodeEmail($arrRow['email']) . '" title="' . StringUtil::specialchars(Idna::decodeEmail($arrRow['email'])) . '">' . $arrRow['name'] . '</a></strong> - ' . Date::parse(Config::get('datimFormat'), $arrRow['date']) . '<br>' . '</div>
         <div class="limit_height mark_links' . (!Config::get('doNotCollapse') ? ' h30' : '') . ' block"><strong>' . '"' . $arrRow['titel'] . '</strong>' . '<br/><br/>' . $arrRow['message'] . '</div></div>' . "\n    ";
     }
     
