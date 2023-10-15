@@ -197,7 +197,7 @@ class tl_guestbook extends Backend {
     
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
-        if (mb_strlen($this->Input->get('id'))) {
+        if (strlen($this->Input->get('id'))) {
             $this->toggleVisibility($this->Input->get('id'), ($this->Input->get('state') == 1));
             $this->redirect($this->getReferer());
         }
