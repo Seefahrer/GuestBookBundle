@@ -7,12 +7,13 @@
  */
 
 use Contao\Backend;
+use Contao\Config;
+use Contao\CoreBundle\Security\ContaoCorePermissions;
+use Contao\DataContainer;
+use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
 use Contao\StringUtil;
-use Contao\Date;
-use Contao\DataContainer;
-use Contao\Config;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
@@ -198,7 +199,11 @@ class tl_guestbook extends Backend {
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
 		
-       
+        // Check permissions AFTER checking the tid, so hacking attempts are logged
+		if (!System::getContainer()->get('security.helper')->isGranted(ContaoCorePermissions::USER_CAN_EDIT_FIELD_OF_TABLE, 'tl_guestbook::published'))
+		{
+			return '';
+		}
 
 		$href .= '&amp;id=' . $row['id'];
 
