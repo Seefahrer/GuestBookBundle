@@ -10,6 +10,7 @@
 
 use Contao\System;
 use Contao\Date;
+use Contao\Module;
 
 class GuestBook extends Module {
     
