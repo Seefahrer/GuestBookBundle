@@ -7,6 +7,12 @@
  */
 
 use Contao\Date;
+use Contao\BackendTemplate;
+use Contao\Config;
+use Contao\CoreBundle\File\Metadata;
+use Contao\File;
+use Contao\FilesModel;
+use Contao\Model\Collection;
 use Contao\Module;
 use Contao\ModuleModel;
 use Contao\System;
