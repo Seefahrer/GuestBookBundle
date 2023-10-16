@@ -7,13 +7,12 @@
  */
 
 use Contao\Backend;
+use Contao\Config;
+use Contao\DataContainer;
+use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
 use Contao\StringUtil;
-use Contao\Date;
-use Contao\DataContainer;
-use Contao\Config;
-use Contao\Input;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
     // Config
