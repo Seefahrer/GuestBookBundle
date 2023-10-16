@@ -6,10 +6,8 @@
  * @license LGPL-3.0-or-later
  */
 
-//namespace Seefahrer\GuestBookBundle\GuestBook;
-
-use Contao\System;
 use Contao\Date;
+use Contao\System;
 
 class GuestBook extends Frontend {
     
