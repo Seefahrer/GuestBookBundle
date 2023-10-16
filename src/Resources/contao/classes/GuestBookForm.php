@@ -6,7 +6,12 @@
 * @license LGPL-3.0-or-later
 */
 
+
+namespace Seefahrer\GuestBook;
+
+use Contao\Module;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\System;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
