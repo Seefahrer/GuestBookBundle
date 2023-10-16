@@ -9,7 +9,6 @@
 namespace Seefahrer\GuestBook;
 
 use Contao\Date;
-use Contao\Module;
 use Contao\System;
 
 class GuestBook extends Module {
