@@ -9,7 +9,7 @@
 use Contao\Date;
 use Contao\System;
 
-class GuestBook extends Frontend {
+class GuestBook extends Module {
     
     /** * Template * @var string */
     protected $strTemplate = 'mod_guestbook';
