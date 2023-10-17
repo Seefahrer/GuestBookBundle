@@ -10,6 +10,7 @@
 //namespace Seefahrer\GuestBookBundle\Module;
 
 use Contao\FrontendUser;
+use Contao\Functions;
 use Contao\Input;
 use Contao\Module;
 use Contao\StringUtil;
@@ -174,13 +175,16 @@ class GuestBookForm extends Module {
     * - [email=name@domain.com][/email]
     */
     protected function addGbEntrie() {
+
+        // Get Form Data
+        $formData = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
 		
-        $strWebsite = $this->Input->post('gbwebsite');
+        $strWebsite = $formData->get('contao.form.data')->getValue()['gbwebsite'];
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
-        $strComment = trim($this->Input->post('gbmessage', true));
+        $strComment = trim($formData->get('contao.form.data')->getValue()['gbmessage']);
         // Replace bbcode
         if ($this->gb_bbcode) {
             $arrSearch = array (
@@ -250,16 +254,16 @@ class GuestBookForm extends Module {
         // Prepare record
         $arrSet = array (
             'tstamp' => time(),
-            'name' => $this->Input->post('gbname'),
-            'email' => $this->Input->post('gbemail', true),
+            'name' => $formData->get('contao.form.data')->getValue()['gbname'],
+            'place' => $formData->get('contao.form.data')->getValue()['gbplace'],
+            'email' => $formData->get('contao.form.data')->getValue()['gbemail'],
             'website' => '',
-            'titel' => $this->Input->post('gbtitel'),
-            'message' => nl2br_pre($strComment),
+            'titel' => $formData->get('contao.form.data')->getValue()['gbtitel'],
+            'message' => functions::nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
             'published' => 1
         );
-        $arrSet['place'] = $this->Input->post('gbplace');
         // Moderate
         if ($this->gb_moderate) {
             $arrSet['published'] = '';
