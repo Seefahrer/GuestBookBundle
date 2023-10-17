@@ -8,11 +8,11 @@
  * @license LGPL-3.0+
  */
 
-namespace Seefahrer\GuestBookBundle;
+namespace Seefahrer\GuestBook;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 // Configures the contao-guestbook-bundle
-class SeefahrerGuestBookBundle extends Bundle
+class GuestBookBundle extends Bundle
 {
 }
