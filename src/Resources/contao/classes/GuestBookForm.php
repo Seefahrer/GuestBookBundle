@@ -139,7 +139,7 @@ class GuestBookForm extends Module {
         $this->Template->fields = $arrWidgets;
         $this->Template->submit = $GLOBALS['TL_LANG']['GUESTBOOK']['submit'];
         $this->Template->action = StringUtil::ampersand($this->Environment->request);
-        $this->Template->messages = $this->getMessages();
+        $this->Template->messages = Message::generate(false, false);
 
         // Confirmation message
         if ($_SESSION['TL_GUESTBOOKENTRIE_ADDED']) {
