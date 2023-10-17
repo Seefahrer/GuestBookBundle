@@ -7,8 +7,9 @@
 */
 
 
-namespace Seefahrer\GuestBook;
+//namespace Seefahrer\GuestBook;
 
+use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
 
