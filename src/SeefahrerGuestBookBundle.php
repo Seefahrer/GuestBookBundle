@@ -8,7 +8,7 @@
  * @license LGPL-3.0+
  */
 
-namespace Seefahrer\GuestBookBundle;
+namespace Seefahrer\GuestBook;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
