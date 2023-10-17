@@ -13,6 +13,7 @@ use Contao\FrontendUser;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
+use Contao\User;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
