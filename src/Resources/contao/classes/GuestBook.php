@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Seefahrer\GuestBookBundle\Module;
+namespace Seefahrer\SeefahrerGuestBookBundle\Module;
 
 use Contao\Date;
 use Contao\Module;
