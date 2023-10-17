@@ -13,7 +13,6 @@ use Contao\FrontendUser;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
-use Contao\User;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
@@ -38,7 +37,7 @@ class GuestBookForm extends Module {
     */
     protected function compile() {
         // Get front end user object
-        $this->import('FrontendUser', 'User');
+        $User = FrontendUser::getInstance();
         // Access control
         if ($this->protected && !System::getContainer()->get('contao.security.token_checker')->hasBackendUser()) {
             if (!System::getContainer()->get('contao.security.token_checker')->hasFrontendUser()) {
@@ -46,7 +45,7 @@ class GuestBookForm extends Module {
                 return;
             }
             $arrGroups = StringUtil::deserialize($this->groups);
-            if (is_array($arrGroups) && count(array_intersect($this->User->groups, $arrGroups)) < 1) {
+            if (is_array($arrGroups) && count(array_intersect($User->groups, $arrGroups)) < 1) {
                 $this->Template->protected = true;
                 return;
             }
@@ -56,21 +55,21 @@ class GuestBookForm extends Module {
             'name' => array (
                 'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_name'],
                 'name' => 'gbname',
-                'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
+                'value' => trim($User->firstname . ' ' . $User->lastname),
                 'inputType' => 'text',
                 'eval' => array('mandatory'=>true, 'maxlength'=>128)
             ),
             'place' => array (
                 'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_place'],
                 'name' => 'gbplace',
-                'value' => $this->User->place,
+                'value' => $User->place,
                 'inputType' => 'text',
                 'eval' => array('mandatory'=>true, 'maxlength'=>128)
             ),
             'email' => array (
                 'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_email'],
                 'name' => 'gbemail',
-                'value' => $this->User->email,
+                'value' => $User->email,
                 'inputType' => 'text',
                 'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'tl_class'=>'w50')
             )
@@ -79,7 +78,7 @@ class GuestBookForm extends Module {
             $arrFields['website'] = array (
                 'label' => $GLOBALS['TL_LANG']['GUESTBOOK']['gb_website'],
                 'name' => 'gbwebsite',
-                'value' => $this->User->website,
+                'value' => $User->website,
                 'inputType' => 'text',
                 'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true,'tl_class'=>'w50')
             );
