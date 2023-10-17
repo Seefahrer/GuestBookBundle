@@ -13,6 +13,7 @@ use Contao\FrontendUser;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
+use Contao\Widget;
 
 //namespace Seefahrer\GuestBookBundle\GuestBookForm;
 
@@ -119,9 +120,11 @@ class GuestBookForm extends Module {
         foreach ($arrFields as $arrField) {
             $strClass = $GLOBALS['TL_FFL'][$arrField['inputType']];
             // Continue if the class is not defined
-            
+            if (!$this->class_exists($strClass)) {
+                continue;
+            }
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
-            $objWidget = new $strClass($this->prepareForWidget($arrField, $arrField['name'], $arrField['value']));
+            $objWidget = new $strClass(Widget::getAttributesFromDca($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
             if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
