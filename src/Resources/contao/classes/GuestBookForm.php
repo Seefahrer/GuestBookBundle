@@ -12,6 +12,7 @@
 use Contao\FrontendUser;
 use Contao\Functions;
 use Contao\Input;
+use Contao\Message;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
