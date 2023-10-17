@@ -120,7 +120,7 @@ class GuestBookForm extends Module {
         foreach ($arrFields as $arrField) {
             $strClass = $GLOBALS['TL_FFL'][$arrField['inputType']];
             // Continue if the class is not defined
-            if (!$this->class_exists($strClass)) {
+            if (!class_exists($strClass)) {
                 continue;
             }
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
