@@ -119,9 +119,7 @@ class GuestBookForm extends Module {
         foreach ($arrFields as $arrField) {
             $strClass = $GLOBALS['TL_FFL'][$arrField['inputType']];
             // Continue if the class is not defined
-            if (!$this->classFileExists($strClass)) {
-                continue;
-            }
+            
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
             $objWidget = new $strClass($this->prepareForWidget($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
