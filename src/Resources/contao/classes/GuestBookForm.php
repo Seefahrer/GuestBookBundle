@@ -7,7 +7,7 @@
 */
 
 
-namespace Seefahrer\GuestBook\Module;
+namespace Seefahrer\GuestBookBundle\Module;
 
 use Contao\Module;
 use Contao\StringUtil;
