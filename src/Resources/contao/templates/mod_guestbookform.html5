@@ -5,7 +5,7 @@
     <script type="text/javascript">
     tinyMCE.init({
       selector: '#guestbookform textarea',
-      language: "<?php echo Backend::getTinyMceLanguage(); ?>",
+      language: "<?php echo \Contao\Backend::getTinyMceLanguage(); ?>",
       plugins: "bbcode emoticons",
       menubar: "",
       statusbar: false,
