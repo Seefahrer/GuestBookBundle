@@ -137,7 +137,7 @@ class GuestBookForm extends Module {
         }
         $this->Template->fields = $arrWidgets;
         $this->Template->submit = $GLOBALS['TL_LANG']['GUESTBOOK']['submit'];
-        $this->Template->action = ampersand($this->Environment->request);
+        $this->Template->action = StringUtil::ampersand($this->Environment->request);
         $this->Template->messages = $this->getMessages();
 
         // Confirmation message
