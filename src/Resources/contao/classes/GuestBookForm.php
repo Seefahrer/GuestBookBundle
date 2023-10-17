@@ -10,6 +10,7 @@
 //namespace Seefahrer\GuestBookBundle\Module;
 
 use Contao\FrontendUser;
+use Contao\Input;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
@@ -145,7 +146,7 @@ class GuestBookForm extends Module {
             $_SESSION['TL_GUESTBOOKENTRIE_ADDED'] = false;
         }
         // Add comment
-        if ($this->Input->post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
+        if (Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
             $this->addGbEntrie();
             // Pending for approval
             if ($this->gb_moderate) {
@@ -176,7 +177,7 @@ class GuestBookForm extends Module {
 		
         $strWebsite = $this->Input->post('gbwebsite');
         // Add https:// to website
-        if (mb_strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
+        if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
         $strComment = trim($this->Input->post('gbmessage', true));
