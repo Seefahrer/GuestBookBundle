@@ -130,7 +130,7 @@ class GuestBookForm extends Module {
             $objWidget = new $strClass(Widget::getAttributesFromDca($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
             if (Input::post("FORM_SUBMIT") === null) {
-                dd ("Ist leer")
+                dd("Ist leer");
             }
             if (Input::post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
