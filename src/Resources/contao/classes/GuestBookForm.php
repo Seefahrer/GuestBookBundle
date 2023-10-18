@@ -131,7 +131,7 @@ class GuestBookForm extends Module {
             // Validate widget
             $something = isset($_POST['FORM_SUBMIT']) ? $_POST['FORM_SUBMIT'] : NULL;
             if ($something === NULL) {
-                dd("Ist leer");
+                dd("Ist immer noch leer");
             }
             if (Input::post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
