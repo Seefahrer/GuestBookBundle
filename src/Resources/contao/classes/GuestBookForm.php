@@ -129,8 +129,8 @@ class GuestBookForm extends Module {
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
             $objWidget = new $strClass(Widget::getAttributesFromDca($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
-            $session = Contao\System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
-            dd($session->get('contao.form.data')->getValue()['formId']);
+            $request = Contao\System::getContainer()->get('request_stack')->getCurrentRequest();
+            dd($request->request->get('FORM_SUBMIT'));
             if (Input::post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
                 if ($objWidget->hasErrors()) {
