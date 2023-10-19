@@ -7,7 +7,6 @@
  */
 
 use Contao\Date;
-use Contao\Input;
 use Contao\Module;
 use Contao\System;
 
@@ -18,8 +17,7 @@ class GuestBook extends Module {
     /** * Display a wildcard in the back end * @return string */
    
     public function generate() {
-        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest()))
-        {
+        if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest())) {
             $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### GUESTBOOK ENTRIES ###';
             $objTemplate->title = $this->headline;
