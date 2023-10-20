@@ -182,7 +182,7 @@ class GuestBookForm extends Module {
         // Get Form Data
         $formData = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
 		
-        $strWebsite = $formData->get('contao.form.data')->getValue()['gbwebsite'];
+        $strWebsite = $formData->get('contao.form.data')->getValue()['website'];
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
