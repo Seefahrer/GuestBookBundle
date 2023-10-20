@@ -180,14 +180,14 @@ class GuestBookForm extends Module {
     protected function addGbEntrie() {
 
         // Get Form Data
-        $formData = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
+        $session = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
 		
-        $strWebsite = $formData->get('contao.form.data')->getValue()['gbplace'];
+        $strWebsite = $session->get('contao.form.data')->getValue()['gbwebsite'];
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
-        $strComment = trim($formData->get('contao.form.data')->getValue()['gbmessage']);
+        $strComment = trim($session->get('contao.form.data')->getValue()['gbmessage']);
         // Replace bbcode
         if ($this->gb_bbcode) {
             $arrSearch = array (
@@ -257,11 +257,11 @@ class GuestBookForm extends Module {
         // Prepare record
         $arrSet = array (
             'tstamp' => time(),
-            'name' => $formData->get('contao.form.data')->getValue()['gbname'],
-            'place' => $formData->get('contao.form.data')->getValue()['gbplace'],
-            'email' => $formData->get('contao.form.data')->getValue()['gbemail'],
+            'name' => $session->get('contao.form.data')->getValue()['gbname'],
+            'place' => $session->get('contao.form.data')->getValue()['gbplace'],
+            'email' => $session->get('contao.form.data')->getValue()['gbemail'],
             'website' => '',
-            'titel' => $formData->get('contao.form.data')->getValue()['gbtitel'],
+            'titel' => $session->get('contao.form.data')->getValue()['gbtitel'],
             'message' => functions::nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
