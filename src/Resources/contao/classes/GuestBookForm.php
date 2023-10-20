@@ -10,9 +10,7 @@
 //namespace Seefahrer\GuestBookBundle\Module;
 
 use Contao\FrontendUser;
-use Contao\Functions;
 use Contao\Input;
-use Contao\Message;
 use Contao\Module;
 use Contao\StringUtil;
 use Contao\System;
@@ -129,9 +127,7 @@ class GuestBookForm extends Module {
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
             $objWidget = new $strClass(Widget::getAttributesFromDca($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
-            $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-            //dd($request->request->get('FORM_SUBMIT'));
-            if ($request->request->get('FORM_SUBMIT') === 'tl_guestbook') {
+            if (Input::post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
                 if ($objWidget->hasErrors()) {
                     $doNotSubmit = true;
@@ -142,7 +138,7 @@ class GuestBookForm extends Module {
         $this->Template->fields = $arrWidgets;
         $this->Template->submit = $GLOBALS['TL_LANG']['GUESTBOOK']['submit'];
         $this->Template->action = StringUtil::ampersand($this->Environment->request);
-        $this->Template->messages = Message::generate(false, false);
+        $this->Template->messages = $this->getMessages();
 
         // Confirmation message
         if ($_SESSION['TL_GUESTBOOKENTRIE_ADDED']) {
@@ -178,16 +174,13 @@ class GuestBookForm extends Module {
     * - [email=name@domain.com][/email]
     */
     protected function addGbEntrie() {
-
-        // Get Form Data
-        $session = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
 		
-        $strWebsite = $session->get('contao.form.data')->getValue()['gbwebsite'];
+        $strWebsite = $this->Input->post('gbwebsite');
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
-        $strComment = trim($session->get('contao.form.data')->getValue()['gbmessage']);
+        $strComment = trim($this->Input->post('gbmessage', true));
         // Replace bbcode
         if ($this->gb_bbcode) {
             $arrSearch = array (
@@ -257,16 +250,16 @@ class GuestBookForm extends Module {
         // Prepare record
         $arrSet = array (
             'tstamp' => time(),
-            'name' => $session->get('contao.form.data')->getValue()['gbname'],
-            'place' => $session->get('contao.form.data')->getValue()['gbplace'],
-            'email' => $session->get('contao.form.data')->getValue()['gbemail'],
+            'name' => $this->Input->post('gbname'),
+            'email' => $this->Input->post('gbemail', true),
             'website' => '',
-            'titel' => $session->get('contao.form.data')->getValue()['gbtitel'],
-            'message' => functions::nl2br_pre($strComment),
+            'titel' => $this->Input->post('gbtitel'),
+            'message' => nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
             'published' => 1
         );
+        $arrSet['place'] = $this->Input->post('gbplace');
         // Moderate
         if ($this->gb_moderate) {
             $arrSet['published'] = '';
