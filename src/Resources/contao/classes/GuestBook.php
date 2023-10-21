@@ -7,6 +7,7 @@
  */
 
 use Contao\Date;
+use Contao\Input;
 use Contao\Module;
 use Contao\System;
 

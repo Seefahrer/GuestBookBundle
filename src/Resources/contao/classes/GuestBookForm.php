@@ -181,12 +181,11 @@ class GuestBookForm extends Module {
 
         // Get Form Data
         $strWebsite = \Input::post('gbwebsite');
-        dd($strWebsite);
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
-        $strComment = trim($session->get('contao.form.data')->getValue()['gbmessage']);
+        $strComment = trim(\Input::post('gbmessage'));
         // Replace bbcode
         if ($this->gb_bbcode) {
             $arrSearch = array (
@@ -206,14 +205,9 @@ class GuestBookForm extends Module {
                 ':eek',
                 ':o)',
                 '8)',
-                ':?',
-                ':x',
-                ':roll',
-                ':zzz',
-                ':sigh',
-                ':upset'
+                ':?'
             );
-            $arrReplace =  [
+            $arrReplace =  (
                 '<strong>', '</strong>',
                 '<em>', '</em>',
                 '<span style="text-decoration:underline;">', '</span>',
@@ -230,13 +224,8 @@ class GuestBookForm extends Module {
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cool.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-embarassed.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_dead.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_rolleyes.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sleep.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_sigh.gif">',
-                '<img src="assets/tinymce4/js/plugins/emoticons/img2/sm_upset.gif">'
-            ];
+                '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-embarassed.gif">'
+            );
             $strComment = str_replace($arrSearch, $arrReplace, $strComment);
             $strComment = preg_replace('/\[color=([^\]]+)\]/i', '<span style="color:$1;">', $strComment);
             $strComment = preg_replace('/\[quote=([^\]]+)\]/i', '<div class="quote"><p>' . sprintf($GLOBALS['TL_LANG']['MSC']['com_quote'], '$1') . '</p>', $strComment);
@@ -256,11 +245,11 @@ class GuestBookForm extends Module {
         // Prepare record
         $arrSet = array (
             'tstamp' => time(),
-            'name' => $session->get('contao.form.data')->getValue()['gbname'],
-            'place' => $session->get('contao.form.data')->getValue()['gbplace'],
-            'email' => $session->get('contao.form.data')->getValue()['gbemail'],
-            'website' => '',
-            'titel' => $session->get('contao.form.data')->getValue()['gbtitel'],
+            'name' => \Input::post('gbname'),
+            'place' => \Input::post('gbplace'),
+            'email' => \Input::post('gbemail'),
+            'website' => $strWebsite,
+            'titel' => \Input::post('gbtitel'),
             'message' => functions::nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
