@@ -180,6 +180,7 @@ class GuestBookForm extends Module {
     protected function addGbEntrie() {
 
         // Get Form Data
+        dd(\Input::post('FORM_SUBMIT'));
         $session = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
         dd($session->get('contao.form.data'));
         $strWebsite = $session->get('contao.form.data')->getValue()['gbwebsite'];
