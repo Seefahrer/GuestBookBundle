@@ -247,10 +247,9 @@ class GuestBookForm extends Module {
             'name' => \Input::post('gbname'),
             'place' => \Input::post('gbplace'),
             'email' => \Input::post('gbemail'),
-            'website' => $strWebsite,
+            'website' => '',
             'titel' => \Input::post('gbtitel'),
             'message' => $strComment,
-            'place' => '',
             'date' => time(),
             'published' => 1
         );
