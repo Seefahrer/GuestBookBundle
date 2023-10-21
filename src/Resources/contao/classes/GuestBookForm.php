@@ -180,10 +180,8 @@ class GuestBookForm extends Module {
     protected function addGbEntrie() {
 
         // Get Form Data
-        dd(\Input::post('FORM_SUBMIT'));
-        $session = System::getContainer()->get('request_stack')->getCurrentRequest()->getSession();
-        dd($session->get('contao.form.data'));
-        $strWebsite = $session->get('contao.form.data')->getValue()['gbwebsite'];
+        $strWebsite = \Input::post('gbwebsite');
+        dd($strWebsite);
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
