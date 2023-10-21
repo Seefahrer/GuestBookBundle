@@ -188,7 +188,7 @@ class GuestBookForm extends Module {
         $strComment = trim(\Input::post('gbmessage'));
         // Replace bbcode
         if ($this->gb_bbcode) {
-            $arrSearch = array (
+            $arrSearch = array [
                 '[b]', '[/b]',
                 '[i]', '[/i]',
                 '[u]', '[/u]',
@@ -206,7 +206,7 @@ class GuestBookForm extends Module {
                 ':o)',
                 '8)',
                 ':?'
-            );
+            ];
             $arrReplace =  [
                 '<strong>', '</strong>',
                 '<em>', '</em>',
@@ -250,7 +250,7 @@ class GuestBookForm extends Module {
             'email' => \Input::post('gbemail'),
             'website' => $strWebsite,
             'titel' => \Input::post('gbtitel'),
-            'message' => functions::nl2br_pre($strComment),
+            'message' => \Functions::nl2br_pre($strComment),
             'place' => '',
             'date' => time(),
             'published' => 1
