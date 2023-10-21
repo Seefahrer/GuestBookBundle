@@ -36,7 +36,7 @@ class GuestBook extends Module {
         $hasBackendUser = System::getContainer()->get('contao.security.token_checker')->hasBackendUser();
         // Pagination
         if ($this->gb_perPage > 0) {
-            $page = \Input::get('page') ? \Input::get('page') : 1;
+            $page = Input::get('page') ? Input::get('page') : 1;
             $limit = $this->gb_perPage;
             $offset = ($page - 1) * $this->gb_perPage;
             // Get total number of comments
