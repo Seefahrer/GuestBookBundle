@@ -10,7 +10,6 @@
 //namespace Seefahrer\GuestBookBundle\Module;
 
 use Contao\FrontendUser;
-use Contao\Functions;
 use Contao\Input;
 use Contao\Message;
 use Contao\Module;
@@ -250,7 +249,7 @@ class GuestBookForm extends Module {
             'email' => \Input::post('gbemail'),
             'website' => $strWebsite,
             'titel' => \Input::post('gbtitel'),
-            'message' => \Functions::nl2br_pre($strComment),
+            'message' => $strComment,
             'place' => '',
             'date' => time(),
             'published' => 1
