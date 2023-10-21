@@ -207,7 +207,7 @@ class GuestBookForm extends Module {
                 '8)',
                 ':?'
             );
-            $arrReplace =  (
+            $arrReplace =  [
                 '<strong>', '</strong>',
                 '<em>', '</em>',
                 '<span style="text-decoration:underline;">', '</span>',
@@ -225,7 +225,7 @@ class GuestBookForm extends Module {
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-surprised.gif">',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-cool.gif">',
                 '<img src="assets/tinymce4/js/plugins/emoticons/img/smiley-embarassed.gif">'
-            );
+            ];
             $strComment = str_replace($arrSearch, $arrReplace, $strComment);
             $strComment = preg_replace('/\[color=([^\]]+)\]/i', '<span style="color:$1;">', $strComment);
             $strComment = preg_replace('/\[quote=([^\]]+)\]/i', '<div class="quote"><p>' . sprintf($GLOBALS['TL_LANG']['MSC']['com_quote'], '$1') . '</p>', $strComment);
