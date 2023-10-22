@@ -40,7 +40,7 @@ class GuestBook extends Module {
             $limit = $this->gb_perPage;
             $offset = ($page - 1) * $this->gb_perPage;
             // Get total number of comments
-            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "")) ->execute($this->id);
+            $objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_guestbook" . (!$hasBackendUser ? " WHERE published=1" : "")) ->execute();
             // Add pagination menu
             $objPagination = new Pagination($objTotal->count, $this->gb_perPage);
             $this->Template->pagination = $objPagination->generate("\n ");
@@ -50,7 +50,7 @@ class GuestBook extends Module {
         if ($limit) {
             $gbEntriesStmt->limit($limit, $offset);
         }
-        $gbEntries = $gbEntriesStmt->execute($this->id);
+        $gbEntries = $gbEntriesStmt->execute();
 
         $total = $gbEntries->numRows;
         if ($total > 0) {
