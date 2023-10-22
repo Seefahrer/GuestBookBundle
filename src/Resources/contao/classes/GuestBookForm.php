@@ -128,11 +128,10 @@ class GuestBookForm extends Module {
             $arrField['eval']['required'] = $arrField['eval']['mandatory'];
             $objWidget = new $strClass(Widget::getAttributesFromDca($arrField, $arrField['name'], $arrField['value']));
             // Validate widget
-            $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-            //dd($request->request->get('FORM_SUBMIT'));
-            if ($request->request->get('FORM_SUBMIT') === 'tl_guestbook') {
+            if (Input::post('FORM_SUBMIT') == 'tl_guestbook') {
                 $objWidget->validate();
-                if ($objWidget->hasErrors()) {
+                if ($objWidget->hasErrors())
+                {
                     $doNotSubmit = true;
                 }
             }
@@ -149,7 +148,7 @@ class GuestBookForm extends Module {
             $_SESSION['TL_GUESTBOOKENTRY_ADDED'] = false;
         }
         // Add comment
-        if (Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
+        if (\Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
             $this->addGbEntry();
             // Pending for approval
             if ($this->gb_moderate) {
