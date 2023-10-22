@@ -179,12 +179,12 @@ class GuestBookForm extends Module {
     protected function addGbEntry() {
 
         // Get Form Data
-        $strWebsite = \Input::post('gbwebsite');
+        $strWebsite = Input::post('gbwebsite');
         // Add https:// to website
         if (strlen($strWebsite) && !preg_match('@^https?://|ftp://|mailto:@i', $strWebsite)) {
             $strWebsite = 'https://' . $strWebsite;
         }
-        $strComment = trim(\Input::post('gbmessage'));
+        $strComment = trim(Input::post('gbmessage'));
         // Replace bbcode
         if ($this->gb_bbcode) {
             $arrSearch = array (
@@ -244,11 +244,11 @@ class GuestBookForm extends Module {
         // Prepare record
         $arrSet = array (
             'tstamp' => time(),
-            'name' => \Input::post('gbname'),
-            'place' => \Input::post('gbplace'),
-            'email' => \Input::post('gbemail'),
+            'name' => Input::post('gbname'),
+            'place' => Input::post('gbplace'),
+            'email' => Input::post('gbemail'),
             'website' => '',
-            'titel' => \Input::post('gbtitel'),
+            'titel' => Input::post('gbtitel'),
             'message' => $strComment,
             'date' => time(),
             'published' => 1
