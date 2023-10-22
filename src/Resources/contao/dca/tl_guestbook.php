@@ -12,6 +12,7 @@ use Contao\DataContainer;
 use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
+use Contao\Image;
 use Contao\Input;
 use Contao\StringUtil;
 
@@ -204,7 +205,7 @@ class tl_guestbook extends Backend {
         }
         $href .= '&id='.$row['id'].'&state='.$row['published'];
         if ($row['published']) { $icon = 'visible.gif'; }
-        return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ';
+        return '<a href="'.$this->addToUrl($href).'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
     }
     
    // Toggle published on Database
