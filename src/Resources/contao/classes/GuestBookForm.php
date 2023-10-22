@@ -148,7 +148,7 @@ class GuestBookForm extends Module {
             $_SESSION['TL_GUESTBOOKENTRY_ADDED'] = false;
         }
         // Add comment
-        if (\Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
+        if (Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
             $this->addGbEntry();
             // Pending for approval
             if ($this->gb_moderate) {
