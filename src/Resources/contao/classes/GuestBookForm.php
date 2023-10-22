@@ -144,16 +144,16 @@ class GuestBookForm extends Module {
         $this->Template->messages = Message::generate(false, false);
 
         // Confirmation message
-        if ($_SESSION['TL_GUESTBOOKENTRIE_ADDED']) {
+        if ($_SESSION['TL_GUESTBOOKENTRY_ADDED']) {
             $this->Template->confirm = $GLOBALS['TL_LANG']['GUESTBOOK']['confirm'];
-            $_SESSION['TL_GUESTBOOKENTRIE_ADDED'] = false;
+            $_SESSION['TL_GUESTBOOKENTRY_ADDED'] = false;
         }
         // Add comment
         if (Input::post('FORM_SUBMIT') == 'tl_guestbook' && !$doNotSubmit) {
-            $this->addGbEntrie();
+            $this->addGbEntry();
             // Pending for approval
             if ($this->gb_moderate) {
-                $_SESSION['TL_GUESTBOOKENTRIE_ADDED'] = true;
+                $_SESSION['TL_GUESTBOOKENTRY_ADDED'] = true;
             }
             $this->reload();
         }
@@ -176,7 +176,7 @@ class GuestBookForm extends Module {
     * - [email][/email]
     * - [email=name@domain.com][/email]
     */
-    protected function addGbEntrie() {
+    protected function addGbEntry() {
 
         // Get Form Data
         $strWebsite = \Input::post('gbwebsite');
