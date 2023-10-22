@@ -9,6 +9,7 @@
 
 //namespace Seefahrer\GuestBookBundle\Module;
 
+use Contao\BackendTemplate;
 use Contao\FrontendUser;
 use Contao\Input;
 use Contao\Message;
