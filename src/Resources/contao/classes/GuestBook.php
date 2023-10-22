@@ -9,6 +9,7 @@
 use Contao\Date;
 use Contao\Input;
 use Contao\Module;
+use Conta0\Pagination;
 use Contao\System;
 
 class GuestBook extends Module {
