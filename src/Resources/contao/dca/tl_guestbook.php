@@ -12,6 +12,7 @@ use Contao\DataContainer;
 use Contao\Date;
 use Contao\DC_Table;
 use Contao\Idna;
+use Contao\Input;
 use Contao\StringUtil;
 
 $GLOBALS['TL_DCA']['tl_guestbook'] =  [
@@ -197,7 +198,7 @@ class tl_guestbook extends Backend {
     
     // Toggle published icon
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
-        if (strlen($this->Input->get('id'))) {
+        if (strlen(Input::get('id'))) {
             $this->toggleVisibility($this->Input->get('id'), ($this->Input->get('state') == 1));
             $this->redirect($this->getReferer());
         }
