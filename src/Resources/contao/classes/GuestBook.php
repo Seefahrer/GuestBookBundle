@@ -6,6 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
+use Contao\BackendTemplate;
 use Contao\Date;
 use Contao\FrontendTemplate;
 use Contao\Input;
