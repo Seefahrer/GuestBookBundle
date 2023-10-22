@@ -6,6 +6,7 @@
     tinyMCE.init({
       selector: '#guestbookform textarea',
       promotion: false,
+      height: 200,
       language: "<?php echo \Contao\Backend::getTinyMceLanguage(); ?>",
       plugins: "bbcode emoticons",
       menubar: "",
