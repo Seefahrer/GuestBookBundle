@@ -11,7 +11,7 @@ use Contao\System;
 System::loadLanguageFile('tl_content');
 
 // Add palettes to tl_module
-$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{type_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha,gb_disableDSGVO,gb_DSGVOpagelink;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['guestbookform'] = '{title_legend},name,headline,type,gb_jumpTo;{config_legend},gb_moderate,gb_bbcode,gb_disableURL,gb_disableCaptcha,gb_disableDSGVO,gb_DSGVOpagelink;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['guestbooklist'] = '{title_legend},name,headline,type;{config_legend},gb_order,gb_perPage,gb_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 // Add fields to tl_module
