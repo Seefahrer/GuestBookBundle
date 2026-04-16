@@ -15,9 +15,8 @@ $GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css';
 ArrayUtil::arrayInsert($GLOBALS['FE_MOD'], 1, array (
     'guestbook' => array (
         'guestbooklist' => 'GuestBook',
-        'guestbookform' => 'GuestBookForm',
-        'stylesheet' => 'bundles/seefahrerguestbook/guestbook.css'
-    )
+        'guestbookform' => 'GuestBookForm'
+        )
 ));
 
 // Back end modules
