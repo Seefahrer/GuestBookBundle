@@ -4,6 +4,7 @@
 <script type="text/javascript">
 tinyMCE.init({
   selector: '#guestbookform textarea',
+  license_key: 'gpl',
   promotion: false,
   height: 200,
   language: "<?php echo \Contao\Backend::getTinyMceLanguage(); ?>",
