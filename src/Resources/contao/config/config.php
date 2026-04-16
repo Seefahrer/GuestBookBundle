@@ -18,7 +18,6 @@ ArrayUtil::arrayInsert($GLOBALS['FE_MOD'], 1, array (
         'guestbookform' => 'GuestBookForm',
         'stylesheet' => 'bundles/seefahrerguestbook/guestbook.css'
     )
-    )
 ));
 
 // Back end modules
