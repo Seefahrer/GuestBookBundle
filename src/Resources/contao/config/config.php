@@ -7,23 +7,10 @@
 */
 
 use Contao\ArrayUtil;
-use Contao\System;
-use Symfony\Component\HttpFoundation\Request;
 
 // Front end styles
 
-/*
- * -------------------------------------------------------------------------
- * FRONT END MODULES CSS Minimum Definitions
- * (ugly hack, in FE esi request, no isFrontendRequest is available)
- * -------------------------------------------------------------------------
- */
-
-
-if (!System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create('')))
-{
-	$GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css|static';
-}
+$GLOBALS['TL_CSS'][]  = 'bundles/seefahrerguestbook/guestbook.min.css|static';
 
 // Front end modules
 ArrayUtil::arrayInsert($GLOBALS['FE_MOD'], 1, array (
